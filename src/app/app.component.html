@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>ngx-kjua 0.0.1 · Demo</title>
+  <meta name="description" content="demo for kjua (https://larsjung.de/kjua/)">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+</head>
+<body>
+<div id="container">
+  <ngx-kjua
+    [text]="text"
+    [render]="render"
+    [crisp]="crisp"
+    [minVersion]="minVersion"
+    [ecLevel]="ecLevel"
+    [size]="size"
+    [ratio]="ratio"
+    [fill]="fill"
+    [back]="back"
+    [rounded]="rounded"
+    [quiet]="quiet"
+    [mode]="mode"
+    [mSize]="mSize"
+    [mPosX]="mPosX"
+    [mPosY]="mPosY"
+    [label]="label"
+    [fontname]="fontname"
+    [fontcolor]="fontcolor"
+    [image]="image"
+  ></ngx-kjua>
+</div>
+<div class="control left"><a id="banner" href="https://larsjung.de/kjua/">ngx-kjua 0.0.1</a>
+  <hr>
+  <label for="render">RENDER MODE</label><select id="render" [(ngModel)]="render">
+    <option value="image" selected="selected">image</option>
+    <option value="canvas">canvas</option>
+  </select><label for="crisp">CRISP</label><select id="crisp" [(ngModel)]="crisp">
+    <option value="true" selected="selected">true</option>
+    <option value="false">false</option>
+  </select>
+  <hr>
+  <label for="size">SIZE:</label><input id="size" type="range" value="400" min="100" max="1000" step="50" [(ngModel)]="size"><label for="fill">FILL</label><input id="fill" type="color" value="#333333"
+                                                                                                                                                                  [(ngModel)]="fill"><label for="back">BACK</label><input
+    id="back" type="color" value="#ffffff" [(ngModel)]="back"><label for="text">CONTENT</label><textarea id="text" [(ngModel)]="text"></textarea>
+  <hr>
+  <label for="minversion">MIN VERSION:</label><input id="minversion" type="range" value="1" min="1" max="10" step="1" [(ngModel)]="minVersion"><label for="eclevel">ERROR CORRECTION
+    LEVEL</label><select id="eclevel" [(ngModel)]="ecLevel">
+    <option value="L">L - low (7%)</option>
+    <option value="M">M - medium (15%)</option>
+    <option value="Q">Q - quartile (25%)</option>
+    <option value="H" selected="selected">H - high (30%)</option>
+  </select><label for="quiet">QUIET ZONE:</label><input id="quiet" type="range" value="1" min="0" max="4" step="1" [(ngModel)]="quiet"><label for="rounded">ROUNDED CORNERS:</label><input id="rounded"
+                                                                                                                                                                                           type="range"
+                                                                                                                                                                                           value="100"
+                                                                                                                                                                                           min="0"
+                                                                                                                                                                                           max="100"
+                                                                                                                                                                                           step="10"
+                                                                                                                                                                                           [(ngModel)]="rounded">
+</div>
+<div class="control right"><label for="mode">MODE</label><select id="mode" [(ngModel)]="mode">
+  <option value="plain">plain</option>
+  <option value="label" selected="selected">label</option>
+  <option value="image">image</option>
+</select>
+  <hr>
+  <label for="msize">SIZE:</label><input id="msize" type="range" value="30" min="0" max="40" step="1" [(ngModel)]="mSize"><label for="mposx">POS X:</label><input id="mposx" type="range" value="50"
+                                                                                                                                                                  min="0" max="100"
+                                                                                                                                                                  step="1" [(ngModel)]="mPosX"><label
+    for="mposy">POS Y:</label><input
+    id="mposy" type="range" value="50" min="0" max="100" step="1" [(ngModel)]="mPosY">
+  <hr>
+  <label for="label">LABEL</label><input id="label" type="text" [(ngModel)]="label"><label for="font">FONT NAME</label><input id="font" type="text" [(ngModel)]="fontname"><label for="fontcolor">FONT
+    COLOR</label><input id="fontcolor" type="color" value="#ff9818" [(ngModel)]="fontcolor">
+  <hr>
+  <label for="image">IMAGE</label><input id="image" type="file" (change)="getFiles($event)"></div>
+<img id="img-buffer" src="/assets/dummy.png" #imgBuffer>
+</body>
+</html>
