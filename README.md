@@ -11,7 +11,7 @@ This is basically an Angular-wrapper for [kjua](https://github.com/lrsjng/kjua) 
 
 ## Demo
 
-[Example](https://werthdavid.github.io/ngx-kjua/index.html)
+[Demo](https://werthdavid.github.io/ngx-kjua/index.html)
 
 [StackBlitz](https://stackblitz.com/edit/ngx-kjua-example?file=index.html) 
 
