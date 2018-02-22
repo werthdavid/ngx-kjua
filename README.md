@@ -53,6 +53,7 @@ Once the package is imported, you can use it in your Angular application:
 ```html
   <ngx-kjua
     [text]="'hello'"
+    [renderAsync]="false"
     [render]="'image'"
     [crisp]="true"
     [minVersion]="1"
@@ -71,11 +72,11 @@ Once the package is imported, you can use it in your Angular application:
     [fontname]="'sans-serif'"
     [fontcolor]="'#ff9818'"
     [image]="undefined"
-    [renderAsync]="false"
   ></ngx-kjua>
 ```
 
 * `text` encoded content (defaults to ``)
+* `renderAsync` weather or not rendering is done inside "requestAnimationFrame"-call (defaults to `false`, use true if you want to generate more than one code (e.g. batch))
 * `render` render pixel-perfect lines (defaults to `true`)
 * `minVersion` minimum version: 1..40(defaults to `1`)
 * `ecLevel` error correction level: 'L', 'M', 'Q' or 'H' (defaults to `L`)
@@ -95,3 +96,7 @@ Once the package is imported, you can use it in your Angular application:
 
 
 More details can be found on [larsjung.de/kjua](https://larsjung.de/kjua/)
+
+## TODO
+
+* Add an example for `renderAsync` where lots of codes are generated
