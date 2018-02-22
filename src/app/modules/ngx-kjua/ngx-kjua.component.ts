@@ -43,7 +43,7 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
    * size in pixel
    */
   @Input()
-  size = 400;
+  size = 200;
 
   /**
    * pixel-ratio; undefined for devicePixelRatio
