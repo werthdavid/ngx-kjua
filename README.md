@@ -11,11 +11,13 @@ This is basically an Angular-wrapper for [kjua](https://github.com/lrsjng/kjua) 
 
 ## Demo
 
-[StackBlitz](https://stackblitz.com/edit/ngx-kjua-example?file=index.html) _(preview needs to be opened in new window)_
+[Example](https://werthdavid.github.io/ngx-kjua/index.html)
 
-[StackBlitz](https://stackblitz.com/edit/ngx-kjua-batch?file=app/app.component.html) Example with 300 codes at once (async rendering) _(preview needs to be opened in new window)_
+[StackBlitz](https://stackblitz.com/edit/ngx-kjua-example?file=index.html) 
 
-[StackBlitz](https://stackblitz.com/edit/ngx-kjua-batch-jspdf?file=app%2Fapp.component.ts) Example for generating a PDF with [jspdf](https://github.com/MrRio/jsPDF) _(preview needs to be opened in new window)_
+[StackBlitz](https://stackblitz.com/edit/ngx-kjua-batch?file=app/app.component.html) Example with 300 codes at once (async rendering)
+
+[StackBlitz](https://stackblitz.com/edit/ngx-kjua-batch-jspdf?file=app%2Fapp.component.ts) Example for generating a PDF with [jspdf](https://github.com/MrRio/jsPDF)
 
 ## Installation
 
