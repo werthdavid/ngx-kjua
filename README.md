@@ -110,3 +110,7 @@ If you plan to render more than one barcode (e.g. batch-generation) I recommend 
 
 See the [example](https://stackblitz.com/edit/ngx-kjua-batch-jspdf?file=app%2Fapp.component.ts) above. 
 It works with pure kjua and has in fact nothing to do with ngx-kjua but I thought somebody might find it useful.
+
+## Todo
+
+* Add a helper class that lets users create VCards, Calendar entries, Wifi-settings, ...
