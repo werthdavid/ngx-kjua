@@ -13,6 +13,8 @@ This is basically an Angular-wrapper for [kjua](https://github.com/lrsjng/kjua) 
 
 [StackBlitz](https://stackblitz.com/edit/ngx-kjua-example?file=index.html) _(preview needs to be opened in new window)_
 
+[StackBlitz](https://stackblitz.com/edit/ngx-kjua-batch?file=app/app.component.html) Example with 300 codes at once (async rendering) _(preview needs to be opened in new window)_
+
 ## Installation
 
 To install this package, run:
@@ -94,9 +96,12 @@ Once the package is imported, you can use it in your Angular application:
 * `fontcolor` font-color for additional label text (defaults to `#333`)
 * `image` additional image (defaults to `undefined`, use an HTMLImageElement)
 
-
 More details can be found on [larsjung.de/kjua](https://larsjung.de/kjua/)
+
+### Async rendering
+
+If you plan to render more than one barcode (e.g. batch-generation) I recommend using `renderAsync`-flag. It executes the rendering inside a "requestAnimationFrame"-call.
 
 ## TODO
 
-* Add an example for `renderAsync` where lots of codes are generated
+* Show how to generate a PDF with codes using [jsPDF](https://github.com/MrRio/jsPDF)
