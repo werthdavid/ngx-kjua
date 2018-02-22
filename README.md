@@ -15,6 +15,8 @@ This is basically an Angular-wrapper for [kjua](https://github.com/lrsjng/kjua) 
 
 [StackBlitz](https://stackblitz.com/edit/ngx-kjua-batch?file=app/app.component.html) Example with 300 codes at once (async rendering) _(preview needs to be opened in new window)_
 
+[StackBlitz](https://stackblitz.com/edit/ngx-kjua-batch-jspdf?file=app%2Fapp.component.ts) Example for generating a PDF with [jspdf](https://github.com/MrRio/jsPDF) _(preview needs to be opened in new window)_
+
 ## Installation
 
 To install this package, run:
@@ -102,6 +104,7 @@ More details can be found on [larsjung.de/kjua](https://larsjung.de/kjua/)
 
 If you plan to render more than one barcode (e.g. batch-generation) I recommend using `renderAsync`-flag. It executes the rendering inside a "requestAnimationFrame"-call.
 
-## TODO
+### Generate PDF
 
-* Show how to generate a PDF with codes using [jsPDF](https://github.com/MrRio/jsPDF)
+See the [example](https://stackblitz.com/edit/ngx-kjua-batch-jspdf?file=app%2Fapp.component.ts) above. 
+It works with pure kjua and has in fact nothing to do with ngx-kjua but I thought somebody might find it useful.
