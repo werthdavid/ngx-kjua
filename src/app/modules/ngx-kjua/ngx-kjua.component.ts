@@ -116,7 +116,7 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
    */
   @Input()
   renderAsync = false;
-
+ 
   @ViewChild("elem")
   div;
 

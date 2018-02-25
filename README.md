@@ -106,6 +106,23 @@ More details can be found on [larsjung.de/kjua](https://larsjung.de/kjua/)
 
 If you plan to render more than one barcode (e.g. batch-generation) I recommend using `renderAsync`-flag. It executes the rendering inside a "requestAnimationFrame"-call.
 
+### Encoding Contacts, Calendar entries, WiFi-settings, ...
+
+The component comes with a helper-class (`QrCodeHelper`), that helps you with generating Codes that have information like a Contact encoded.
+Currently it supports the generation of:
+
+* SMS: number with optional pre-defined text
+* Call
+* Geo-Information: a point on the map with Latitude and Longitude
+* Events
+* Email: recipient with an optional subject and text
+* WiFi: SSID with optional password and a flag for hidden WiFis
+* Contact Information: name with optional address, telephone-number(s), email, url.
+
+Contact Encoding is done with MECard-format and NOT VCard! VCard gives a longer string and therefore a
+bigger code which potentially has a negative impact on readability for scanners. 
+You can, of course, create a [VCard](https://en.wikipedia.org/wiki/VCard) string as well but the format is more complex.
+
 ### Generate PDF
 
 See the [example](https://stackblitz.com/edit/ngx-kjua-batch-jspdf?file=app%2Fapp.component.ts) above. 
@@ -113,4 +130,4 @@ It works with pure kjua and has in fact nothing to do with ngx-kjua but I though
 
 ## Todo
 
-* Add a helper class that lets users create VCards, Calendar entries, Wifi-settings, ...
+* Add a Demo for the helper class that lets users create Contacts, Calendar entries, WiFi-settings, ...
