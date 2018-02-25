@@ -109,7 +109,7 @@ END:VEVENT`;
    * @param email
    * @param url
    */
-  makeContactMeCard(name: string, telNumbers?: string[] | number[], address?: string, email?: string, url?: string): string {
+  static makeContactMeCard(name: string, telNumbers?: string[] | number[], address?: string, email?: string, url?: string): string {
     let retVal = `MECARD:
 N:${name};`;
     if (address) {
