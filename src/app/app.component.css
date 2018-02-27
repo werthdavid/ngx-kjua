@@ -92,21 +92,3 @@ input[type="range"] {
   -webkit-appearance: none;
   cursor: pointer;
 }
-
-input::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 16px;
-  height: 16px;
-  border-radius: 3px;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #aaa), color-stop(1, #aaa));
-}
-
-@media print {
-  #container {
-    box-shadow: none;
-  }
-
-  .control {
-    display: none;
-  }
-}
