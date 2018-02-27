@@ -15,7 +15,7 @@ This is basically an Angular-wrapper for [kjua](https://github.com/lrsjng/kjua) 
 
 [StackBlitz](https://stackblitz.com/edit/ngx-kjua-example?file=index.html) 
 
-[StackBlitz](https://stackblitz.com/edit/ngx-kjua-helper?file=app/app.component.ts) Example for encoding Contacts, Calendar entries, WiFi-settings, ...
+[StackBlitz](https://stackblitz.com/edit/ngx-kjua-helper?file=app/app.component.ts) Example for encoding Contacts, Calendar entries, WiFi-settings and more. You can use iPhone's default Camera App, it will decode QR-Codes!
 
 [StackBlitz](https://stackblitz.com/edit/ngx-kjua-batch?file=app/app.component.html) Example with 300 codes at once (async rendering)
 
