@@ -42,16 +42,17 @@ export class QrCodeHelper {
 
   /**
    * Make the code for encoding an event in iCal format
+   * You have to do the encoding for the begin and end by yourself (use moment.js!)
    *
    * @param description
    * @param begin
    * @param end
    */
-  static makeEvent(description: string, begin: Date, end: Date): string {
+  static makeEvent(description: string, begin: string, end: string): string {
     return `BEGIN:VEVENT
 SUMMARY:${description}
-DTSTART:20180208T110000Z
-DTEND:20180210T110000Z
+DTSTART:${begin}
+DTEND:${end}
 END:VEVENT`;
   }
 
@@ -84,7 +85,7 @@ END:VEVENT`;
    * @param hidden
    */
   static makeWifi(ssid: string, pass?: string, hidden = false): string {
-    let retVal = `WIFI:${!!pass ? 'T:WPA' : 'T:nopass'};S:${ssid};`;
+    let retVal = `WIFI:${!!pass ? "T:WPA" : "T:nopass"};S:${ssid};`;
     if (pass) {
       retVal += `P:${pass}`;
     }
@@ -128,4 +129,6 @@ END:VEVENT`;
     retVal += `;`;
     return retVal;
   }
+
+
 }

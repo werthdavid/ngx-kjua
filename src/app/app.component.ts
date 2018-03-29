@@ -7,7 +7,7 @@ import {AfterViewInit, Component, ElementRef, ViewChild} from "@angular/core";
 })
 export class AppComponent implements AfterViewInit {
 
-  text = "https://larsjung.de/kjua/";
+  text = "https://github.com/werthdavid/ngx-kjua";
   render = "image";
   crisp = true;
   minVersion = 1;
@@ -16,7 +16,7 @@ export class AppComponent implements AfterViewInit {
   ratio = undefined;
   fill = "#333";
   back = "#fff";
-  rounded = 100;
+  rounded = 0;
   quiet = 1;
   mode = "label";
   mSize = 30;
