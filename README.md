@@ -50,7 +50,7 @@ import { NgxKjuaModule } from 'ngx-kjua';
         
         NgxKjuaModule,
         
-        // another imports...
+        // other imports...
     ],
     // ...
 })
@@ -60,6 +60,16 @@ export class AppModule { }
 ## Usage
 
 Once the package is imported, you can use it in your Angular application:
+
+### Basic
+
+```html
+  <ngx-kjua
+    [text]="'hello'"
+  ></ngx-kjua>
+```
+
+### Advanced
 
 ```html
   <ngx-kjua
