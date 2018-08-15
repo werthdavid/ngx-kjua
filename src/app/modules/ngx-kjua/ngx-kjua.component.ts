@@ -1,6 +1,22 @@
-import {ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from "@angular/core";
-import * as kjuaImported from "kjua";
-const kjua = kjuaImported;
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  Input,
+  OnChanges,
+  OnInit,
+  PLATFORM_ID,
+  SimpleChanges,
+  ViewChild,
+} from "@angular/core";
+
+import { isPlatformServer } from "@angular/common";
+
+// Because kjua uses `window` and `document` directly, we cannot `import` during SSR
+// instead, we load dynamically via `require('kjua')` in `ngAfterViewInit()`
+declare var require: any;
+let kjua: any;
 
 @Component({
   selector: "ngx-kjua",
@@ -13,7 +29,7 @@ const kjua = kjuaImported;
   `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NgxKjuaComponent implements OnInit, OnChanges {
+export class NgxKjuaComponent implements AfterViewInit, OnInit, OnChanges {
 
   /**
    * render method: "canvas" or "image"
@@ -119,6 +135,18 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
  
   @ViewChild("elem")
   div;
+
+  constructor (
+    @Inject(PLATFORM_ID) private platformId: Object,
+  ) {}
+
+  ngAfterViewInit(): void {
+    if (isPlatformServer(this.platformId)) {
+      return;
+    } else if (!kjua) {
+      kjua = require("kjua");
+    }
+  }
 
   ngOnInit(): void {
     this.updateView();
