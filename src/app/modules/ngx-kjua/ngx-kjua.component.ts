@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   Inject,
@@ -29,7 +28,7 @@ let kjua: any;
   `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NgxKjuaComponent implements AfterViewInit, OnInit, OnChanges {
+export class NgxKjuaComponent implements OnInit, OnChanges {
 
   /**
    * render method: "canvas" or "image"
@@ -132,15 +131,13 @@ export class NgxKjuaComponent implements AfterViewInit, OnInit, OnChanges {
    */
   @Input()
   renderAsync = false;
- 
+
   @ViewChild("elem")
   div;
 
   constructor (
     @Inject(PLATFORM_ID) private platformId: Object,
-  ) {}
-
-  ngAfterViewInit(): void {
+  ) {
     if (isPlatformServer(this.platformId)) {
       return;
     } else if (!kjua) {
