@@ -1,16 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  Input,
-  OnChanges,
-  OnInit,
-  PLATFORM_ID,
-  SimpleChanges,
-  ViewChild,
-} from "@angular/core";
+import {ChangeDetectionStrategy, Component, Inject, Input, OnChanges, OnInit, PLATFORM_ID, SimpleChanges, ViewChild,} from "@angular/core";
 
-import { isPlatformServer } from "@angular/common";
+import {isPlatformServer} from "@angular/common";
 
 // Because kjua uses `window` and `document` directly, we cannot `import` during SSR
 // instead, we load dynamically via `require('kjua')` in `ngAfterViewInit()`
@@ -20,7 +10,7 @@ let kjua: any;
 @Component({
   selector: "ngx-kjua",
   template: `
-    <div #elem></div>`,
+    <div [class]="cssClass" #elem></div>`,
   styles: [`
     :host {
       display: block;
@@ -131,6 +121,13 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
    */
   @Input()
   renderAsync = false;
+
+  /**
+   * If set, this css-class will be appended to the div-container that contains
+   * the qr-code (which is either an img or a canvas)
+   */
+  @Input()
+  cssClass;
 
   @ViewChild("elem")
   div;

@@ -16,7 +16,7 @@ This is basically an Angular-wrapper for [kjua](https://github.com/lrsjng/kjua) 
 
 [Demo](https://werthdavid.github.io/ngx-kjua/index.html)
 
-[StackBlitz](https://stackblitz.com/edit/ngx-kjua-example?file=index.html) 
+[StackBlitz](https://stackblitz.com/edit/ngx-kjua-example-7) 
 
 [StackBlitz](https://stackblitz.com/edit/ngx-kjua-helper?file=app/app.component.ts) Example for encoding Contacts, Calendar entries, WiFi-settings and more. You can use iPhone's default Camera App, it will decode QR-Codes!
 
@@ -93,6 +93,7 @@ Once the package is imported, you can use it in your Angular application:
     [fontname]="'sans-serif'"
     [fontcolor]="'#ff9818'"
     [image]="undefined"
+    [cssClass]="'image-auto'"
   ></ngx-kjua>
 ```
 
@@ -114,6 +115,7 @@ Once the package is imported, you can use it in your Angular application:
 * `fontname` font for additional label text (defaults to `sans-serif`)
 * `fontcolor` font-color for additional label text (defaults to `#333`)
 * `image` additional image (defaults to `undefined`, use an HTMLImageElement)
+* `cssClass` additional css-class that will be appended to the div-container that contains the qr-code (defaults to `undefined`)
 
 More details can be found on [larsjung.de/kjua](https://larsjung.de/kjua/)
 
