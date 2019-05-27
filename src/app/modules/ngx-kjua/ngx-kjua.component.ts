@@ -132,7 +132,7 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
   @ViewChild("elem")
   div;
 
-  constructor (
+  constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
   ) {
     if (isPlatformServer(this.platformId)) {
