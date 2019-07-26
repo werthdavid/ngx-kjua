@@ -75,7 +75,7 @@ Once the package is imported, you can use it in your Angular application:
   <ngx-kjua
     [text]="'hello'"
     [renderAsync]="false"
-    [render]="'image'"
+    [render]="'svg'"
     [crisp]="true"
     [minVersion]="1"
     [ecLevel]="'H'"
@@ -99,7 +99,8 @@ Once the package is imported, you can use it in your Angular application:
 
 * `text` encoded content (defaults to ``)
 * `renderAsync` weather or not rendering is done inside "requestAnimationFrame"-call (defaults to `false`, use true if you want to generate more than one code (e.g. batch))
-* `render` render pixel-perfect lines (defaults to `true`)
+* `render` render-mode: 'image', 'canvas', 'svg' (defaults to `image`)
+* `crisp` render pixel-perfect lines (defaults to `true`)
 * `minVersion` minimum version: 1..40(defaults to `1`)
 * `ecLevel` error correction level: 'L', 'M', 'Q' or 'H' (defaults to `L`)
 * `size` size in pixel (defaults to `200`)

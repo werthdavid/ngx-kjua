@@ -14,8 +14,8 @@ export class AppComponent implements AfterViewInit {
   ecLevel = "H";
   size = 400;
   ratio = undefined;
-  fill = "#333";
-  back = "#fff";
+  fill = "#333333";
+  back = "#ffffff";
   rounded = 0;
   quiet = 1;
   mode = "label";

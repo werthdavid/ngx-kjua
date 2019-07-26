@@ -37,6 +37,7 @@
   <label for="render">RENDER MODE</label><select id="render" [(ngModel)]="render">
     <option value="image" selected="selected">image</option>
     <option value="canvas">canvas</option>
+    <option value="svg">svg</option>
   </select><label for="crisp">CRISP</label><select id="crisp" [(ngModel)]="crisp">
     <option value="true" selected="selected">true</option>
     <option value="false">false</option>
@@ -52,7 +53,7 @@
     <option value="M">M - medium (15%)</option>
     <option value="Q">Q - quartile (25%)</option>
     <option value="H" selected="selected">H - high (30%)</option>
-  </select><label for="quiet">QUIET ZONE:</label><input id="quiet" type="range" value="1" min="0" max="4" step="1" [(ngModel)]="quiet"><label for="rounded">ROUNDED CORNERS:</label><input id="rounded"
+  </select><label for="quiet">QUIET ZONE:</label><input id="quiet" type="range" value="1" min="0" max="40" step="1" [(ngModel)]="quiet"><label for="rounded">ROUNDED CORNERS:</label><input id="rounded"
                                                                                                                                                                                            type="range"
                                                                                                                                                                                            value="100"
                                                                                                                                                                                            min="0"

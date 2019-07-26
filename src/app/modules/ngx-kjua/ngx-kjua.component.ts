@@ -21,7 +21,7 @@ let kjua: any;
 export class NgxKjuaComponent implements OnInit, OnChanges {
 
   /**
-   * render method: "canvas" or "image"
+   * render method: "canvas" or "image" or "svg"
    */
   @Input()
   render = "image";
@@ -138,7 +138,7 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
     if (isPlatformServer(this.platformId)) {
       return;
     } else if (!kjua) {
-      kjua = require("kjua");
+      kjua = require("kjua-svg");
     }
   }
 
