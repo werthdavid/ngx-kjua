@@ -10,11 +10,11 @@ let kjua: any;
 @Component({
   selector: "ngx-kjua",
   template: `
-    <div [class]="cssClass" #elem></div>`,
+      <div [class]="cssClass" #elem></div>`,
   styles: [`
-    :host {
-      display: block;
-    }
+      :host {
+          display: block;
+      }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -116,6 +116,12 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
   image = undefined;
 
   /**
+   * draw the image as part of the code
+   */
+  @Input()
+  imageAsCode = false;
+
+  /**
    * If true, rendering is done inside "requestAnimationFrame"-call.
    * Use this if you want to generate more than one code (e.g. batch)
    */
@@ -170,7 +176,8 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
       label: this.label,
       fontname: this.fontname,
       fontcolor: this.fontcolor,
-      image: this.image
+      image: this.image,
+      imageAsCode: this.imageAsCode
     };
     console.debug("kjua settings used:", settings);
     return kjua(settings);

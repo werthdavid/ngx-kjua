@@ -26,6 +26,8 @@ export class AppComponent implements AfterViewInit {
   fontname = "sans-serif";
   fontcolor = "#ff9818";
   image = undefined;
+  imageText = "";
+  imageAsCode = false;
 
   @ViewChild("imgBuffer")
   imageElement: ElementRef;

@@ -93,9 +93,36 @@ Once the package is imported, you can use it in your Angular application:
     [fontname]="'sans-serif'"
     [fontcolor]="'#ff9818'"
     [image]="undefined"
+    [imageAsCode]="false"
     [cssClass]="'image-auto'"
   ></ngx-kjua>
 ```
+
+## Options
+
+### Crisp
+
+As you can set the size of the image, the amount of 'modules' (black/white boxes that make up the QR-code) is calculated based on the size and the amount of `quiet` modules. The calculation can result in an odd number so that a module is e.g. 4.5 pixels big. The resulting image will be drawn fuzzy if `crisp` is set to false. Setting it to `true` will result in 'sharp' lines.
+
+#### crisp false
+<img src="https://raw.githubusercontent.com/werthdavid/kjua/master/docs/no-crisp.jpg"/>
+
+#### crisp true
+<img src="https://raw.githubusercontent.com/werthdavid/kjua/master/docs/crisp.jpg"/>
+
+
+### Label
+Kjua lets you embed a text or image to the code. This can be set with the setting `mode`.
+This can reduce the readability of the code!
+
+### Image
+<img src="https://raw.githubusercontent.com/werthdavid/kjua/master/docs/image.png"/>
+
+### Image as Code
+<img src="https://raw.githubusercontent.com/werthdavid/kjua/master/docs/image-as-code.png"/>
+
+
+### All options
 
 * `text` encoded content (defaults to ``)
 * `renderAsync` weather or not rendering is done inside "requestAnimationFrame"-call (defaults to `false`, use true if you want to generate more than one code (e.g. batch))
@@ -115,7 +142,8 @@ Once the package is imported, you can use it in your Angular application:
 * `label` additional label text (defaults to ``)
 * `fontname` font for additional label text (defaults to `sans-serif`)
 * `fontcolor` font-color for additional label text (defaults to `#333`)
-* `image` additional image (defaults to `undefined`, use an HTMLImageElement)
+* `image` additional image (defaults to `undefined`, use an HTMLImageElement or base64-string)
+* `imageAsCode` draw the image as part of the code (defaults to `false`)
 * `cssClass` additional css-class that will be appended to the div-container that contains the qr-code (defaults to `undefined`)
 
 More details can be found on [larsjung.de/kjua](https://larsjung.de/kjua/)

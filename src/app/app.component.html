@@ -30,6 +30,7 @@
     [fontname]="fontname"
     [fontcolor]="fontcolor"
     [image]="image"
+    [imageAsCode]="imageAsCode"
   ></ngx-kjua>
 </div>
 <div class="control left"><a id="banner" href="https://github.com/werthdavid/ngx-kjua">ngx-kjua</a>
@@ -53,13 +54,14 @@
     <option value="M">M - medium (15%)</option>
     <option value="Q">Q - quartile (25%)</option>
     <option value="H" selected="selected">H - high (30%)</option>
-  </select><label for="quiet">QUIET ZONE:</label><input id="quiet" type="range" value="1" min="0" max="40" step="1" [(ngModel)]="quiet"><label for="rounded">ROUNDED CORNERS:</label><input id="rounded"
-                                                                                                                                                                                           type="range"
-                                                                                                                                                                                           value="100"
-                                                                                                                                                                                           min="0"
-                                                                                                                                                                                           max="100"
-                                                                                                                                                                                           step="10"
-                                                                                                                                                                                           [(ngModel)]="rounded">
+  </select><label for="quiet">QUIET ZONE:</label><input id="quiet" type="range" value="1" min="0" max="40" step="1" [(ngModel)]="quiet"><label for="rounded">ROUNDED CORNERS:</label>
+  <input id="rounded"
+         type="range"
+         value="100"
+         min="0"
+         max="100"
+         step="10"
+         [(ngModel)]="rounded">
 </div>
 <div class="control right"><label for="mode">MODE</label><select id="mode" [(ngModel)]="mode">
   <option value="plain">plain</option>
@@ -67,16 +69,21 @@
   <option value="image">image</option>
 </select>
   <hr>
-  <label for="msize">SIZE:</label><input id="msize" type="range" value="30" min="0" max="40" step="1" [(ngModel)]="mSize"><label for="mposx">POS X:</label><input id="mposx" type="range" value="50"
-                                                                                                                                                                  min="0" max="100"
-                                                                                                                                                                  step="1" [(ngModel)]="mPosX"><label
+  <label for="msize">SIZE:</label><input id="msize" type="range" value="30" min="0" max="100" step="1" [(ngModel)]="mSize"><label for="mposx">POS X:</label>
+  <input id="mposx" type="range" value="50"
+         min="0" max="100"
+         step="1" [(ngModel)]="mPosX"><label
     for="mposy">POS Y:</label><input
     id="mposy" type="range" value="50" min="0" max="100" step="1" [(ngModel)]="mPosY">
   <hr>
   <label for="label">LABEL</label><input id="label" type="text" [(ngModel)]="label"><label for="font">FONT NAME</label><input id="font" type="text" [(ngModel)]="fontname"><label for="fontcolor">FONT
     COLOR</label><input id="fontcolor" type="color" value="#ff9818" [(ngModel)]="fontcolor">
   <hr>
-  <label for="image">IMAGE</label><input id="image" type="file" (change)="getFiles($event)"></div>
+  <label for="image">IMAGE</label><input id="image" type="file" (change)="getFiles($event)">
+  <label for="image-text">IMAGE-TEXT</label><input id="image-text" type="text" [(ngModel)]="imageText">
+  <label for="image-as-code">IMAGE-AS-CODE</label><input id="image-as-code" type="checkbox" [(ngModel)]="imageAsCode">
+
+</div>
 <img id="img-buffer" src="/assets/dummy.png" #imgBuffer>
 </body>
 </html>
