@@ -93,7 +93,6 @@ Once the package is imported, you can use it in your Angular application:
     [fontname]="'sans-serif'"
     [fontcolor]="'#ff9818'"
     [image]="undefined"
-    [imageAsCode]="false"
     [cssClass]="'image-auto'"
   ></ngx-kjua>
 ```
@@ -125,15 +124,14 @@ This can reduce the readability of the code!
 ### All options
 
 * `text` encoded content (defaults to ``)
-* `renderAsync` weather or not rendering is done inside "requestAnimationFrame"-call (defaults to `false`, use true if you want to generate more than one code (e.g. batch))
 * `render` render-mode: 'image', 'canvas', 'svg' (defaults to `image`)
 * `crisp` render pixel-perfect lines (defaults to `true`)
-* `minVersion` minimum version: 1..40(defaults to `1`)
+* `minVersion` minimum version: 1..40 (defaults to `1`)
 * `ecLevel` error correction level: 'L', 'M', 'Q' or 'H' (defaults to `L`)
 * `size` size in pixel (defaults to `200`)
 * `fill` code color (defaults to `#333`)
-* `back` background color (defaults to `#fff`)
-* `rounded` roundend corners in pc: 0..100 (defaults to `0`)
+* `back` background color (defaults to `#fff`, for transparent use `''` or `null`)
+* `rounded` roundend corners in pc: 0..100 (defaults to `0`, not working if `render`is set to `svg`)
 * `quiet` quiet zone in modules (defaults to `0`)
 * `mode` modes: 'plain', 'label' or 'image' (defaults to `plain`, set `label` or `image` property if you change this)
 * `mSize` label/image size in pc: 0..100 (defaults to `30`)
@@ -142,8 +140,10 @@ This can reduce the readability of the code!
 * `label` additional label text (defaults to ``)
 * `fontname` font for additional label text (defaults to `sans-serif`)
 * `fontcolor` font-color for additional label text (defaults to `#333`)
+* `fontoutline` draw an outline on the label text in the color of the `back` (defaults to `true`)
 * `image` additional image (defaults to `undefined`, use an HTMLImageElement or base64-string)
 * `imageAsCode` draw the image as part of the code (defaults to `false`)
+* `renderAsync` weather or not rendering is done inside "requestAnimationFrame"-call (defaults to `false`, use true if you want to generate more than one code (e.g. batch))
 * `cssClass` additional css-class that will be appended to the div-container that contains the qr-code (defaults to `undefined`)
 
 More details can be found on [larsjung.de/kjua](https://larsjung.de/kjua/)
