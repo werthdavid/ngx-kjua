@@ -8,7 +8,7 @@ import {AfterViewInit, Component, ElementRef, ViewChild} from "@angular/core";
 export class AppComponent implements AfterViewInit {
 
   text = "https://github.com/werthdavid/ngx-kjua";
-  render = "image";
+  render = "svg";
   crisp = true;
   minVersion = 1;
   ecLevel = "H";
@@ -23,17 +23,18 @@ export class AppComponent implements AfterViewInit {
   mPosX = 50;
   mPosY = 50;
   label = "kjua";
-  fontname = "sans-serif";
+  fontname = "Ubuntu";
   fontcolor = "#ff9818";
-  image = undefined;
-  imageText = "";
+  fontoutline = true;
   imageAsCode = false;
+  imageText = "";
+  imgNativeElement = undefined;
 
   @ViewChild("imgBuffer")
   imageElement: ElementRef;
 
   ngAfterViewInit(): void {
-    setTimeout(() => this.image = this.imageElement.nativeElement, 500);
+    setTimeout(() => this.imgNativeElement = this.imageElement.nativeElement, 500);
   }
 
   /**
@@ -46,8 +47,16 @@ export class AppComponent implements AfterViewInit {
       reader.readAsDataURL(event.target.files[0]); // read file as data url
       reader.onload = (event2: any) => { // called once readAsDataURL is completed
         this.imageElement.nativeElement.src = event2.target.result;
-        this.image = this.imageElement.nativeElement;
+        this.imgNativeElement = this.imageElement.nativeElement;
       }
+    }
+  }
+
+  get image() {
+    if (!!this.imageText && this.imageText.length > 0) {
+      return this.imageText;
+    } else {
+      return this.imgNativeElement;
     }
   }
 }
