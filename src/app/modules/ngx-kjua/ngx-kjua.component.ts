@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, Inject, Input, OnChanges, OnInit, PLATFORM_ID, SimpleChanges, ViewChild,} from "@angular/core";
 
 import {isPlatformServer} from "@angular/common";
+import {KjuaOptions} from "kjua-svg";
 
 // Because kjua uses `window` and `document` directly, we cannot `import` during SSR
 // instead, we load dynamically via `require('kjua')` in `ngAfterViewInit()`
@@ -21,10 +22,10 @@ let kjua: any;
 export class NgxKjuaComponent implements OnInit, OnChanges {
 
   /**
-   * render method: "canvas" or "image" or "svg"
+   * render method
    */
   @Input()
-  render = "image";
+  render: "image" | "svg" | "canvas" = "image";
 
   /**
    * render pixel-perfect lines
@@ -39,10 +40,10 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
   minVersion = 1;
 
   /**
-   * error correction level= "L"; "M"; "Q" or "H"
+   * error correction level
    */
   @Input()
-  ecLevel = "L";
+  ecLevel: "L" | "M" | "Q" | "H" = "L";
 
   /**
    * size in pixel
@@ -87,10 +88,10 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
   quiet = 0;
 
   /**
-   * modes= "plain"; "label" or "image"
+   * modes
    */
   @Input()
-  mode = "plain";
+  mode: "plain" | "label" | "image" = "plain";
 
   /**
    * label/image size and pos in pc= 0..100
@@ -101,6 +102,10 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
   mPosX = 50;
   @Input()
   mPosY = 50;
+  @Input()
+  image = undefined;
+  @Input()
+  imageAsCode = false;
 
   /**
    * label
@@ -111,15 +116,8 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
   fontname = "sans-serif";
   @Input()
   fontcolor = "#333";
-
   @Input()
-  image = undefined;
-
-  /**
-   * draw the image as part of the code
-   */
-  @Input()
-  imageAsCode = false;
+  fontoutline = true;
 
   /**
    * If true, rendering is done inside "requestAnimationFrame"-call.
@@ -156,8 +154,8 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
     this.updateView();
   }
 
-  get template() {
-    const settings = {
+  get template(): Node {
+    const settings: KjuaOptions = {
       render: this.render,
       crisp: this.crisp,
       minVersion: this.minVersion,
@@ -177,6 +175,7 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
       fontname: this.fontname,
       fontcolor: this.fontcolor,
       image: this.image,
+      fontoutline: this.fontoutline,
       imageAsCode: this.imageAsCode
     };
     console.debug("kjua settings used:", settings);
@@ -184,12 +183,8 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
   }
 
   renderCode() {
-    if (this.render === "image") {
-      this.div.nativeElement.innerHTML = this.template.outerHTML;
-    } else {
-      this.div.nativeElement.innerHTML = "";
-      this.div.nativeElement.appendChild(this.template);
-    }
+    this.div.nativeElement.innerHTML = "";
+    this.div.nativeElement.appendChild(this.template);
   }
 
   updateView() {
