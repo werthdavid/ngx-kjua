@@ -53,11 +53,12 @@
     "@angular/platform-browser": "^9.0.1",
     "@angular/platform-browser-dynamic": "^9.0.1",
     "@types/node": "^12.11.1",
-    "core-js": "^2.6.3",
+    "core-js": "^3.6.4",
+    "ng-packagr": "^9.0.0",
     "rxjs": "~6.5.4",
-    "ts-node": "~8.0.1",
+    "ts-node": "~8.6.2",
     "tslib": "^1.10.0",
-    "tslint": "~5.12.1",
+    "tslint": "~6.0.0",
     "typescript": "~3.7.5",
     "zone.js": "~0.10.2"
   }
