@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Inject, Input, OnChanges, OnInit, PLATFORM_ID, SimpleChanges, ViewChild,} from "@angular/core";
+import {AfterViewInit, ChangeDetectionStrategy, Component, Inject, Input, OnChanges, PLATFORM_ID, SimpleChanges, ViewChild,} from "@angular/core";
 
 import {isPlatformServer} from "@angular/common";
 import {KjuaOptions} from "kjua-svg";
@@ -11,15 +11,15 @@ let kjua: any;
 @Component({
   selector: "ngx-kjua",
   template: `
-      <div [class]="cssClass" #elem></div>`,
+    <div [class]="cssClass" #elem></div>`,
   styles: [`
-      :host {
-          display: block;
-      }
+    :host {
+      display: block;
+    }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NgxKjuaComponent implements OnInit, OnChanges {
+export class NgxKjuaComponent implements AfterViewInit, OnChanges {
 
   /**
    * render method
@@ -136,9 +136,9 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
   @ViewChild("elem")
   div;
 
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-  ) {
+  private viewInitialized = false;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     if (isPlatformServer(this.platformId)) {
       return;
     } else if (!kjua) {
@@ -146,12 +146,15 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
     }
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    this.viewInitialized = true;
     this.updateView();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.updateView();
+    if (this.viewInitialized) {
+      this.updateView();
+    }
   }
 
   get template(): Node {
