@@ -133,7 +133,7 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
   @Input()
   cssClass;
 
-  @ViewChild("elem", {static: false})
+  @ViewChild("elem")
   div;
 
   constructor(
