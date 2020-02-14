@@ -183,17 +183,13 @@ export class NgxKjuaComponent implements OnInit, OnChanges {
   }
 
   renderCode() {
-    setTimeout(() => {
-      this.div.nativeElement.innerHTML = "";
-      this.div.nativeElement.appendChild(this.template);
-    })
+    this.div.nativeElement.innerHTML = "";
+    this.div.nativeElement.appendChild(this.template);
   }
 
   updateView() {
-    setTimeout(() => {
-      this.div.nativeElement.style.width = +this.size;
-      this.div.nativeElement.style.height = +this.size;
-    })
+    this.div.nativeElement.style.width = +this.size;
+    this.div.nativeElement.style.height = +this.size;
     if (this.renderAsync) {
       requestAnimationFrame(() => this.renderCode());
     } else {
