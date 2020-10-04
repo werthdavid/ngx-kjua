@@ -25,7 +25,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
    * render method
    */
   @Input()
-  render: "image" | "svg" | "canvas" = "image";
+  render: "image" | "svg" | "canvas" = "svg";
 
   /**
    * render pixel-perfect lines
@@ -91,7 +91,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
    * modes
    */
   @Input()
-  mode: "plain" | "label" | "image" = "plain";
+  mode: "plain" | "label" | "image" | "imagelabel" | "labelimage" = "plain";
 
   /**
    * label/image size and pos in pc= 0..100

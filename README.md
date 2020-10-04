@@ -126,6 +126,11 @@ This can reduce the readability of the code!
 ### Image as Code
 <img src="https://raw.githubusercontent.com/werthdavid/kjua/master/docs/image-as-code.png"/>
 
+### Labelimage and Imagelabel
+Use this, if you want a label AND an image. In these modes `mSize`, `mPosX` and `mPosY` can be provided as an array.
+In mode `labelimage`, the first value (index 0) of the `mSize`, `mPosX` and `mPosY` arrays is used for the label,
+the second value (index 1) is used for image and vice versa. Also in `labelimage` mode, the label is drawn before the 
+image is drawn and therefore kinda "in the background" if the two overlap.
 
 ### All options
 

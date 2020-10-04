@@ -22,6 +22,9 @@ export class AppComponent implements AfterViewInit {
   mSize = 30;
   mPosX = 50;
   mPosY = 50;
+  mSize2 = 30;
+  mPosX2 = 50;
+  mPosY2 = 50;
   label = "kjua";
   fontname = "Ubuntu";
   fontcolor = "#ff9818";

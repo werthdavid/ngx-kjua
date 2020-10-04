@@ -23,9 +23,9 @@
     [rounded]="rounded"
     [quiet]="quiet"
     [mode]="mode"
-    [mSize]="mSize"
-    [mPosX]="mPosX"
-    [mPosY]="mPosY"
+    [mSize]="[mSize, mSize2]"
+    [mPosX]="[mPosX,mPosX2]"
+    [mPosY]="[mPosY,mPosY2]"
     [label]="label"
     [fontname]="fontname"
     [fontcolor]="fontcolor"
@@ -67,13 +67,20 @@
   <option value="plain">plain</option>
   <option value="label" selected="selected">label</option>
   <option value="image">image</option>
+  <option value="imagelabel">imagelabel</option>
+  <option value="labelimage">labelimage</option>
 </select>
   <hr>
   <label for="msize">SIZE: {{mSize}}%</label><input id="msize" type="range" value="30" min="0" max="100" step="1" [(ngModel)]="mSize">
   <label for="mposx">POS X: {{mPosX}}%</label><input id="mposx" type="range" value="50" min="0" max="100" step="1" [(ngModel)]="mPosX">
-  <label for="mposy">POS Y: {{mPosY}}%</label>
-  <input id="mposy" type="range" value="50" min="0" max="100" step="1" [(ngModel)]="mPosY">
+  <label for="mposy">POS Y: {{mPosY}}%</label><input id="mposy" type="range" value="50" min="0" max="100" step="1" [(ngModel)]="mPosY">
   <hr>
+  <div *ngIf="mode === 'labelimage' || mode === 'imagelabel'">
+    <label for="msize2">SIZE2: {{mSize2}}%</label><input id="msize2" type="range" value="30" min="0" max="100" step="1" [(ngModel)]="mSize2">
+    <label for="mposx2">POS X2: {{mPosX2}}%</label><input id="mposx2" type="range" value="50" min="0" max="100" step="1" [(ngModel)]="mPosX2">
+    <label for="mposy2">POS Y2: {{mPosY2}}%</label><input id="mposy2" type="range" value="50" min="0" max="100" step="1" [(ngModel)]="mPosY2">
+    <hr>
+  </div>
   <label for="label">LABEL</label><input id="label" type="text" [(ngModel)]="label">
   <label for="font">FONT NAME</label><input id="font" type="text" [(ngModel)]="fontname">
   <label for="fontcolor">FONT COLOR</label><input id="fontcolor" type="color" value="#ff9818" [(ngModel)]="fontcolor">
