@@ -8,5 +8,5 @@
 body {
   font-family: "Ubuntu", "Arial", "sans";
   text-align: center;
-  background: repeat url("/assets/back.png");
+  background: repeat url("assets/back.png");
 }
