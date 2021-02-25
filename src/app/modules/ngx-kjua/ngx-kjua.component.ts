@@ -181,7 +181,6 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
       fontoutline: this.fontoutline,
       imageAsCode: this.imageAsCode
     };
-    console.debug("kjua settings used:", settings);
     return kjua(settings);
   }
 
