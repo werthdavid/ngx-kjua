@@ -192,10 +192,23 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
   updateView() {
     this.div.nativeElement.style.width = +this.size;
     this.div.nativeElement.style.height = +this.size;
-    if (this.renderAsync) {
-      requestAnimationFrame(() => this.renderCode());
+    if (typeof this.image === "string") {
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.onload = () => {
+        if (this.renderAsync) {
+          requestAnimationFrame(() => this.renderCode());
+        } else {
+          this.renderCode();
+        }
+      }
+      img.src = 'data:image/png;base64,' + this.image;
     } else {
-      this.renderCode();
+      if (this.renderAsync) {
+        requestAnimationFrame(() => this.renderCode());
+      } else {
+        this.renderCode();
+      }
     }
   }
 }
