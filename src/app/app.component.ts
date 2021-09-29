@@ -32,6 +32,7 @@ export class AppComponent implements AfterViewInit {
   imageAsCode = false;
   imageText = "";
   imgNativeElement = undefined;
+  elementId = "";
 
   @ViewChild("imgBuffer")
   imageElement: ElementRef;

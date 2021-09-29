@@ -1,4 +1,16 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, Inject, Input, OnChanges, PLATFORM_ID, SimpleChanges, ViewChild,} from "@angular/core";
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  Input,
+  OnChanges,
+  Output,
+  PLATFORM_ID,
+  SimpleChanges,
+  ViewChild,
+  EventEmitter
+} from "@angular/core";
 
 import {isPlatformServer} from "@angular/common";
 import {KjuaOptions} from "kjua-svg";
@@ -133,6 +145,15 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
   @Input()
   cssClass;
 
+  /**
+   * an optional HTML-ID-attribute for the element (works only with render-mode SVG and image)
+   */
+  @Input()
+  elementId;
+
+  @Output()
+  codeFinished = new EventEmitter<any>();
+
   @ViewChild("elem")
   div;
 
@@ -179,14 +200,17 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
       fontcolor: this.fontcolor,
       image: this.image,
       fontoutline: this.fontoutline,
-      imageAsCode: this.imageAsCode
+      imageAsCode: this.imageAsCode,
+      elementId: this.elementId
     };
     return kjua(settings);
   }
 
   renderCode() {
     this.div.nativeElement.innerHTML = "";
-    this.div.nativeElement.appendChild(this.template);
+    const node = this.template;
+    this.div.nativeElement.appendChild(node);
+    this.codeFinished.next(node);
   }
 
   updateView() {

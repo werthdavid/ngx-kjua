@@ -32,6 +32,7 @@
     [fontoutline]="fontoutline"
     [image]="image"
     [imageAsCode]="imageAsCode"
+    [elementId]="elementId"
   ></ngx-kjua>
 </div>
 <div class="control left"><a id="banner" href="https://github.com/werthdavid/ngx-kjua">ngx-kjua</a>
@@ -62,6 +63,7 @@
   <input id="quiet" type="range" value="1" min="0" max="40" step="1" [(ngModel)]="quiet">
   <label for="rounded">ROUNDED CORNERS: {{rounded}}%</label>
   <input id="rounded" type="range" value="100" min="0" max="100" step="10" [(ngModel)]="rounded">
+  <label for="elementId">ELEMENT-ID</label><textarea id="elementId" [(ngModel)]="elementId"></textarea>
 </div>
 <div class="control right"><label for="mode">MODE</label><select id="mode" [(ngModel)]="mode">
   <option value="plain">plain</option>
