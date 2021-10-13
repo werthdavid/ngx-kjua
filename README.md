@@ -139,7 +139,7 @@ image is drawn and therefore kinda "in the background" if the two overlap.
 * `crisp` render pixel-perfect lines (defaults to `true`)
 * `minVersion` minimum version: 1..40 (defaults to `1`)
 * `ecLevel` error correction level: 'L', 'M', 'Q' or 'H' (defaults to `L`)
-* `size` size in pixel (defaults to `200`)
+* `size` size in pixel (defaults to `200`, min `24` or higher, depend on how much character you're using)
 * `fill` code color (defaults to `#333`)
 * `back` background color (defaults to `#fff`, for transparent use `''` or `null`)
 * `rounded` roundend corners in pc: 0..100 (defaults to `0`, not working if `render`is set to `svg`)
