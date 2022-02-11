@@ -15,3 +15,4 @@ import {NgxKjuaComponent} from "./ngx-kjua.component";
 })
 export class NgxKjuaModule {
 }
+

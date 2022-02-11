@@ -35,7 +35,7 @@ This is basically an Angular-wrapper for [kjua](https://github.com/lrsjng/kjua) 
 To install this package, run:
 
 ```bash
-npm install ngx-kjua --save
+npm i ngx-kjua kjua-svg --save
 ```
 
 Then import it into your Angular `AppModule`:
