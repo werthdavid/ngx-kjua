@@ -12,13 +12,8 @@ import {
   EventEmitter
 } from "@angular/core";
 
-import {isPlatformServer} from "@angular/common";
 import {KjuaOptions} from "kjua-svg";
-
-// Because kjua uses `window` and `document` directly, we cannot `import` during SSR
-// instead, we load dynamically via `require('kjua')` in `ngAfterViewInit()`
-declare var require: any;
-let kjua: any;
+import * as kjua from "kjua-svg";
 
 @Component({
   selector: "ngx-kjua",
@@ -160,11 +155,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
   private viewInitialized = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    if (isPlatformServer(this.platformId)) {
-      return;
-    } else if (!kjua) {
-      kjua = require("kjua-svg");
-    }
+
   }
 
   ngAfterViewInit(): void {
