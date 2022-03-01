@@ -1,6 +1,6 @@
 {
   "name": "ngx-kjua-library",
-  "description": "Angular QR-Code generator component.",
+  "description": "ngx-kjua library builder",
   "version": "2.0.0",
   "license": "MIT",
   "scripts": {
