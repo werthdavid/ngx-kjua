@@ -1,24 +1,28 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from "@angular/core";
+import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core";
+import {
+  KjuaEcLevel,
+  KjuaMode,
+  KjuaRender,
+} from "../../projects/ngx-kjua/src/lib/ngx-kjua.interface";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
+  styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements AfterViewInit {
-
   text = "https://github.com/werthdavid/ngx-kjua";
-  render = "svg";
+  render: KjuaRender = "svg";
   crisp = true;
   minVersion = 1;
-  ecLevel = "H";
+  ecLevel: KjuaEcLevel = "H";
   size = 400;
   ratio = undefined;
   fill = "#333333";
   back = "#ffffff";
   rounded = 0;
   quiet = 1;
-  mode = "label";
+  mode: KjuaMode = "label";
   mSize = 30;
   mPosX = 50;
   mPosY = 50;
@@ -38,21 +42,25 @@ export class AppComponent implements AfterViewInit {
   imageElement: ElementRef;
 
   ngAfterViewInit(): void {
-    setTimeout(() => this.imgNativeElement = this.imageElement.nativeElement, 500);
+    setTimeout(
+      () => (this.imgNativeElement = this.imageElement.nativeElement),
+      500
+    );
   }
 
   /**
    * Not perfect, I know
    * @param event
    */
-  getFiles(event) {
+  getFiles(event: any) {
     if (event.target.files.length > 0) {
       const reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]); // read file as data url
-      reader.onload = (event2: any) => { // called once readAsDataURL is completed
+      reader.onload = (event2: any) => {
+        // called once readAsDataURL is completed
         this.imageElement.nativeElement.src = event2.target.result;
         this.imgNativeElement = this.imageElement.nativeElement;
-      }
+      };
     }
   }
 

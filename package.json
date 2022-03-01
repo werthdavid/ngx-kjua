@@ -1,7 +1,7 @@
 {
-  "name": "ngx-kjua",
+  "name": "ngx-kjua-library",
   "description": "Angular QR-Code generator component.",
-  "version": "1.14.1",
+  "version": "2.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -11,7 +11,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "packagr": "ng-packagr -p ng-package.json",
-    "package": "ng-packagr -p ng-package.json && cd dist/ && npm pack"
+    "package": "ng-packagr -p ng-package.json && cd dist/ && npm pack",
+    "publish": "ng build ngx-kjua --configuration production && npm publish ./dist/ngx-kjua && npm i ngx-kjua@latest"
   },
   "private": false,
   "repository": {
@@ -35,6 +36,7 @@
     "url": "https://github.com/werthdavid/ngx-kjua/issues"
   },
   "dependencies": {
+    "tslib": "^2.3.0"
   },
   "peerDependencies": {
     "kjua-svg": "^1.13.1"

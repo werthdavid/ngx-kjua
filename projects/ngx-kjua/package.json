@@ -1,0 +1,12 @@
+{
+  "name": "ngx-kjua",
+  "version": "2.0.0",
+  "peerDependencies": {
+    "@angular/common": "^13.2.0",
+    "@angular/core": "^13.2.0",
+    "kjua-svg": "^1.13.1"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

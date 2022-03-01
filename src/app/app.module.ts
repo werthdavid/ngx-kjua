@@ -1,22 +1,21 @@
-import {BrowserModule} from "@angular/platform-browser";
-import {NgModule} from "@angular/core";
-import {AppComponent} from "./app.component";
-import {NgxKjuaModule} from "./modules/ngx-kjua/ngx-kjua.module";
-import {FormsModule} from "@angular/forms";
+import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgxKjuaModule } from "../../projects/ngx-kjua/src/lib/ngx-kjua.module";
+import { AppComponent } from "./app.component";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
+
+    // Forms
     FormsModule,
-    NgxKjuaModule
+    ReactiveFormsModule,
+
+    // Child
+    NgxKjuaModule,
   ],
-  providers: [],
-  bootstrap: [
-    AppComponent
-  ]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}
