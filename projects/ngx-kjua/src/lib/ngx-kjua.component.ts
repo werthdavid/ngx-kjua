@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  EventEmitter,
   Inject,
   Input,
   OnChanges,
@@ -9,30 +10,29 @@ import {
   PLATFORM_ID,
   SimpleChanges,
   ViewChild,
-  EventEmitter
 } from "@angular/core";
-
-import {KjuaOptions} from "kjua-svg";
 import * as kjua from "kjua-svg";
+import { KjuaOptions } from "kjua-svg";
+import { KjuaEcLevel, KjuaMode, KjuaRender } from "./ngx-kjua.interface";
 
 @Component({
   selector: "ngx-kjua",
-  template: `
-    <div [class]="cssClass" #elem></div>`,
-  styles: [`
-    :host {
-      display: block;
-    }
-  `],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  template: ` <div [class]="cssClass" #elem></div>`,
+  styles: [
+    `
+      :host {
+        display: block;
+      }
+    `,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgxKjuaComponent implements AfterViewInit, OnChanges {
-
   /**
    * render method
    */
   @Input()
-  render: "image" | "svg" | "canvas" = "svg";
+  render: KjuaRender = "svg";
 
   /**
    * render pixel-perfect lines
@@ -50,7 +50,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
    * error correction level
    */
   @Input()
-  ecLevel: "L" | "M" | "Q" | "H" = "L";
+  ecLevel: KjuaEcLevel = "L";
 
   /**
    * size in pixel
@@ -98,17 +98,17 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
    * modes
    */
   @Input()
-  mode: "plain" | "label" | "image" | "imagelabel" | "labelimage" = "plain";
+  mode: KjuaMode = "plain";
 
   /**
    * label/image size and pos in pc= 0..100
    */
   @Input()
-  mSize: number|number[] = 30;
+  mSize: number | number[] = 30;
   @Input()
-  mPosX: number|number[] = 50;
+  mPosX: number | number[] = 50;
   @Input()
-  mPosY: number|number[] = 50;
+  mPosY: number | number[] = 50;
   @Input()
   image: null | HTMLImageElement | string = undefined;
   @Input()
@@ -154,9 +154,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
 
   private viewInitialized = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-
-  }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngAfterViewInit(): void {
     this.viewInitialized = true;
@@ -192,7 +190,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
       image: this.image,
       fontoutline: this.fontoutline,
       imageAsCode: this.imageAsCode,
-      elementId: this.elementId
+      elementId: this.elementId,
     };
     return kjua(settings);
   }
@@ -216,8 +214,8 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
         } else {
           this.renderCode();
         }
-      }
-      img.src = 'data:image/png;base64,' + this.image;
+      };
+      img.src = "data:image/png;base64," + this.image;
     } else {
       if (this.renderAsync) {
         requestAnimationFrame(() => this.renderCode());
