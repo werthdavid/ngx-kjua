@@ -5,13 +5,6 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-        node-version: [16.x, 17.x]
-    steps:
-      - name: Build for ${{ matrix.node-version }}
-        uses: ./.github/workflows/build.yml
-        with:
-          node-version: ${{ matrix.node-version }}
+    uses: ./.github/workflows/build.yml
+    with:
+      node-version: 16
