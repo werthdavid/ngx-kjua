@@ -1,0 +1,28 @@
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        required: true
+        type: number
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+      - name: Build on Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@9ced9a43a244f3ac94f13bfd896db8c8f30da67a
+        with:
+          node-version: ${{ inputs.node-version }}
+      - run: npm ci --no-optional
+      - run: npm run build -- ngx-kjua --configuration=production
+      # Add all documentation files to the build
+      - run: cp *.md dist/ngx-kjua/
+      # Copy all assets to the build
+      - run: cp --parents src/assets/* dist/ngx-kjua
+      - run: cp LICENSE dist/ngx-kjua/
+      # TODO run tests when they are available
+      - uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2
+        with:
+          name: ngx-kjua
+          path: dist/ngx-kjua/
