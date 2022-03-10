@@ -39,7 +39,7 @@ export class AppComponent implements AfterViewInit {
   elementId = "";
 
   @ViewChild("imgBuffer")
-  imageElement: ElementRef;
+  imageElement!: ElementRef;
 
   ngAfterViewInit(): void {
     setTimeout(
