@@ -8,6 +8,8 @@
     "start": "ng serve",
     "build": "ng build --configuration production",
     "test": "ng test",
+    "test:lib": "ng test ngx-kjua",
+    "test:lib:ci": "npm run test:lib -- --no-watch --no-progress --browsers=ChromeHeadlessCI",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "packagr": "ng-packagr -p ng-package.json",
