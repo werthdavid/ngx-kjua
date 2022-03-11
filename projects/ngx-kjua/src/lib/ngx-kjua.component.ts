@@ -62,7 +62,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
    * pixel-ratio; undefined for devicePixelRatio
    */
   @Input()
-  ratio: number | null = undefined;
+  ratio: number | null | undefined = undefined;
 
   /**
    * code color
@@ -110,7 +110,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
   @Input()
   mPosY: number | number[] = 50;
   @Input()
-  image: null | HTMLImageElement | string = undefined;
+  image: null | undefined | HTMLImageElement | string = undefined;
   @Input()
   imageAsCode = false;
 
@@ -138,23 +138,23 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
    * the qr-code (which is either an img or a canvas)
    */
   @Input()
-  cssClass: string;
+  cssClass: string | undefined;
 
   /**
    * an optional HTML-ID-attribute for the element (works only with render-mode SVG and image)
    */
   @Input()
-  elementId: string;
+  elementId: string | undefined;
 
   @Output()
   codeFinished = new EventEmitter<any>();
 
   @ViewChild("elem")
-  div;
+  div: any;
 
   private viewInitialized = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngAfterViewInit(): void {
     this.viewInitialized = true;

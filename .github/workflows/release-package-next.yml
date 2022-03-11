@@ -1,0 +1,31 @@
+# Release the library to various npm repositories with a pre-release flag
+name: Pre-release library
+
+on:
+  release:
+    types: [prereleased]
+
+jobs:
+  build-release:
+    name: Build release
+    uses: ./.github/workflows/build.yml
+
+  publish-npm:
+    needs: build-release
+    uses: ./.github/workflows/npm-publish.yml
+    with:
+      registry-url: https://registry.npmjs.org/
+      node-version: 16
+      release-tag: "--tag next"
+    secrets:
+      npm-token: ${{ secrets.NPM_TOKEN }}
+
+  publish-gpr:
+    needs: build-release
+    uses: ./.github/workflows/npm-publish.yml
+    with:
+      registry-url: https://npm.pkg.github.com/
+      node-version: 16
+      release-tag: "--tag next"
+    secrets:
+      npm-token: ${{ secrets.GITHUB_TOKEN }}

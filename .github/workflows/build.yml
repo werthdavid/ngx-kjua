@@ -21,7 +21,8 @@ jobs:
       # Copy all assets to the build
       - run: cp --parents src/assets/* dist/ngx-kjua
       - run: cp LICENSE dist/ngx-kjua/
-      # TODO run tests when they are available
+      - name: Test on ${{ inputs.node-version }}
+        run: npm run test:lib:ci
       - uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2
         with:
           name: ngx-kjua
