@@ -1,7 +1,7 @@
 {
   "name": "ngx-kjua-library",
   "description": "ngx-kjua library builder",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -38,6 +38,7 @@
     "url": "https://github.com/werthdavid/ngx-kjua/issues"
   },
   "dependencies": {
+    "ngx-kjua": "^2.0.1",
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
@@ -54,15 +55,15 @@
     "@angular/language-service": "^13.2.6",
     "@angular/platform-browser": "^13.2.6",
     "@angular/platform-browser-dynamic": "^13.2.6",
-    "@types/node": "^17.0.17",
     "@types/jasmine": "~3.10.0",
+    "@types/node": "^17.0.17",
+    "core-js": "^3.21.0",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
-    "core-js": "^3.21.0",
     "ng-packagr": "^13.2.1",
     "rxjs": "~7.5.4",
     "ts-node": "~10.5.0",
