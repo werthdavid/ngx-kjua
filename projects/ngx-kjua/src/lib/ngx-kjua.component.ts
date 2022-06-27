@@ -11,7 +11,7 @@ import {
   SimpleChanges,
   ViewChild,
 } from "@angular/core";
-import * as kjua from "kjua-svg";
+import kjua from "kjua-svg";
 import { KjuaOptions } from "kjua-svg";
 import { KjuaEcLevel, KjuaMode, KjuaRender } from "./ngx-kjua.interface";
 
