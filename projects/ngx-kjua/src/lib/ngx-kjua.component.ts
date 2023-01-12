@@ -79,7 +79,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
    * content
    */
   private _text = "";
-  @Input() text(value: any) {
+  @Input() set text(value: any) {
     if (String(value)) this._text = value;
     else if (Number(value)) this._text = value.toString();
     else this._text = "";
