@@ -11,8 +11,7 @@ import {
   SimpleChanges,
   ViewChild,
 } from "@angular/core";
-import kjua from "kjua-svg";
-import { KjuaOptions } from "kjua-svg";
+import kjua, { KjuaOptions } from "kjua-svg";
 import { KjuaEcLevel, KjuaMode, KjuaRender } from "./ngx-kjua.interface";
 
 @Component({
@@ -79,8 +78,12 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
   /**
    * content
    */
-  @Input()
-  text = "";
+  private _text = "";
+  @Input() text(value: any) {
+    if (String(value)) this._text = value;
+    else if (Number(value)) this._text = value.toString();
+    else this._text = "";
+  }
 
   /**
    * roundend corners in pc= 0..100
@@ -154,7 +157,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
 
   private viewInitialized = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngAfterViewInit(): void {
     this.viewInitialized = true;
@@ -177,7 +180,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
       ratio: this.ratio,
       fill: this.fill,
       back: this.back,
-      text: this.text,
+      text: this._text,
       rounded: this.rounded,
       quiet: this.quiet,
       mode: this.mode,
