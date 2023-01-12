@@ -11,7 +11,7 @@ import {
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements AfterViewInit {
-  text = "https://github.com/werthdavid/ngx-kjua";
+  text: string | any = "https://github.com/werthdavid/ngx-kjua";
   render: KjuaRender = "svg";
   crisp = true;
   minVersion = 1;

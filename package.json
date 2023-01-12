@@ -1,7 +1,7 @@
 {
   "name": "ngx-kjua-library",
   "description": "ngx-kjua library builder",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -12,8 +12,6 @@
     "test:lib:ci": "npm run test:lib -- --no-watch --no-progress --browsers=ChromeHeadlessCI",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "packagr": "ng-packagr -p ng-package.json",
-    "package": "ng-packagr -p ng-package.json && cd dist/ && npm pack",
     "publish": "ng build ngx-kjua --configuration production && npm publish ./dist/ngx-kjua && npm i ngx-kjua@latest"
   },
   "private": false,
@@ -47,7 +45,7 @@
     "@angular/platform-browser": "^14.2.1",
     "@angular/platform-browser-dynamic": "^14.2.1",
     "kjua-svg": "^1.13.1",
-    "ngx-kjua": "^1.14.4",
+    "ngx-kjua": "^2.0.4",
     "tslib": "^2.4.0",
     "zone.js": "~0.11.8"
   },
