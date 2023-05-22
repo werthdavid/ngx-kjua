@@ -1,7 +1,7 @@
 {
   "name": "ngx-kjua-library",
   "description": "ngx-kjua library builder",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
