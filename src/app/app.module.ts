@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
-import { NgxKjuaModule } from "../../projects/ngx-kjua/src/lib/ngx-kjua.module";
+import { NgxKjuaComponent } from "../../projects/ngx-kjua/src/lib/ngx-kjua.component";
 import { AppComponent } from "./app.component";
 
 @NgModule({
@@ -14,7 +14,7 @@ import { AppComponent } from "./app.component";
     ReactiveFormsModule,
 
     // Child
-    NgxKjuaModule,
+    NgxKjuaComponent,
   ],
   bootstrap: [AppComponent],
 })

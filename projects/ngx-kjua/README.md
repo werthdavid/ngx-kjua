@@ -45,7 +45,7 @@ Then import it into your Angular `AppModule`:
 import { NgModule /* , ... */ } from '@angular/core';
 
 // Import the package's module
-import { NgxKjuaModule } from 'ngx-kjua';
+import { NgxKjuaComponent } from 'ngx-kjua';
 
 @NgModule({
     declarations: [ /* AppComponent ... */ ],
@@ -54,7 +54,7 @@ import { NgxKjuaModule } from 'ngx-kjua';
         // BrowserModule, 
         // ...
         
-        NgxKjuaModule,
+        NgxKjuaComponent,
         
         // other imports...
     ],
@@ -184,4 +184,3 @@ You can, of course, create a [VCard](https://en.wikipedia.org/wiki/VCard) string
 
 See the [example](https://stackblitz.com/edit/ngx-kjua-batch-jspdf?file=app%2Fapp.component.ts) above. 
 It works with pure kjua and has in fact nothing to do with ngx-kjua but I thought somebody might find it useful.
-

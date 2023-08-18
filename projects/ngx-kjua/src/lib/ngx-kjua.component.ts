@@ -15,6 +15,7 @@ import kjua, { KjuaOptions } from "kjua-svg";
 import { KjuaEcLevel, KjuaMode, KjuaRender } from "./ngx-kjua.interface";
 
 @Component({
+  standalone: true,
   selector: "ngx-kjua",
   template: ` <div [class]="cssClass" #elem></div>`,
   styles: [
@@ -164,7 +165,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
     this.updateView();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(_changes: SimpleChanges): void {
     if (this.viewInitialized) {
       this.updateView();
     }
