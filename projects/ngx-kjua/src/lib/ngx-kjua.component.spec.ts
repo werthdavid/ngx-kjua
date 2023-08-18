@@ -8,7 +8,7 @@ describe('NgxKjuaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NgxKjuaComponent ]
+      imports: [ NgxKjuaComponent ]
     })
     .compileComponents();
   });
