@@ -22,7 +22,7 @@ jobs:
       - run: cp --parents src/assets/* dist/ngx-kjua
       - run: cp LICENSE dist/ngx-kjua/
       - name: Test on ${{ inputs.node-version }}
-        run: npm run test:lib:ci
+        run: npm run test
       - uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2
         with:
           name: ngx-kjua
