@@ -9,6 +9,8 @@ jobs:
   build-release:
     name: Build release
     uses: ./.github/workflows/build.yml
+    with:
+      node-version: 16
 
   publish-npm:
     needs: build-release
