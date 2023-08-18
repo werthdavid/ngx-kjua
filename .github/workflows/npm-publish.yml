@@ -32,4 +32,4 @@ jobs:
       - run: npm publish --access public ${{ inputs.release-tag }}
         working-directory: artifact/ngx-kjua
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.npm-token }}
