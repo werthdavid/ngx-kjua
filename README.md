@@ -16,6 +16,11 @@ If you find my work useful you can buy me a coffee, I am very thankful for your 
 
 This is basically an Angular-wrapper for [kjua](https://github.com/lrsjng/kjua) by Lars Jung.
 
+## Breaking changes `v16.1.0`
+Fromm the `v16.1.0` this library use the standalone component, and not the module anymore.  
+[See how to implement it](#installation)
+
+
 ## Demo
 
 <img src="https://raw.githubusercontent.com/werthdavid/ngx-kjua/master/docs/demo.png"/>
