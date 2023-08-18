@@ -7,4 +7,4 @@ jobs:
   build:
     uses: ./.github/workflows/build.yml
     with:
-      node-version: 16
+      node-version: 18

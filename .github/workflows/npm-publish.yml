@@ -19,12 +19,12 @@ jobs:
   release-package:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
-      - uses: actions/download-artifact@f023be2c48cc18debc3bacd34cb396e0295e2869
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
         with:
           name: ngx-kjua
           path: artifact/ngx-kjua/
-      - uses: actions/setup-node@9ced9a43a244f3ac94f13bfd896db8c8f30da67a
+      - uses: actions/setup-node@v2
         with:
           node-version: ${{ inputs.node-version }}
           registry-url: ${{ inputs.registry-url }}
@@ -32,4 +32,4 @@ jobs:
       - run: npm publish --access public ${{ inputs.release-tag }}
         working-directory: artifact/ngx-kjua
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.npm-token }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

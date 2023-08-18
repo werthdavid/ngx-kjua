@@ -10,14 +10,14 @@ jobs:
     name: Build release
     uses: ./.github/workflows/build.yml
     with:
-      node-version: 16
+      node-version: 18
 
   publish-npm:
     needs: build-release
     uses: ./.github/workflows/npm-publish.yml
     with:
       registry-url: https://registry.npmjs.org/
-      node-version: 16
+      node-version: 18
     secrets:
       npm-token: ${{ secrets.NPM_TOKEN }}
 
@@ -26,6 +26,6 @@ jobs:
     uses: ./.github/workflows/npm-publish.yml
     with:
       registry-url: https://npm.pkg.github.com/
-      node-version: 16
+      node-version: 18
     secrets:
       npm-token: ${{ secrets.GITHUB_TOKEN }}
