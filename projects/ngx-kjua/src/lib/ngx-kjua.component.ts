@@ -3,11 +3,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
-  Inject,
   Input,
   OnChanges,
   Output,
-  PLATFORM_ID,
   SimpleChanges,
   ViewChild,
 } from "@angular/core";
@@ -158,7 +156,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
 
   private viewInitialized = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor() {}
 
   ngAfterViewInit(): void {
     this.viewInitialized = true;
