@@ -2,12 +2,11 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   EventEmitter,
-  Inject,
   Input,
   OnChanges,
   Output,
-  PLATFORM_ID,
   SimpleChanges,
   ViewChild,
 } from "@angular/core";
@@ -15,6 +14,7 @@ import kjua, { KjuaOptions } from "kjua-svg";
 import { KjuaEcLevel, KjuaMode, KjuaRender } from "./ngx-kjua.interface";
 
 @Component({
+  standalone: true,
   selector: "ngx-kjua",
   template: ` <div [class]="cssClass" #elem></div>`,
   styles: [
@@ -54,8 +54,8 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
   /**
    * size in pixel
    */
-  @Input()
-  size = 200;
+
+  @Input() size = 200;
 
   /**
    * pixel-ratio; undefined for devicePixelRatio
@@ -152,19 +152,18 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
   @Output()
   codeFinished = new EventEmitter<any>();
 
-  @ViewChild("elem")
-  div: any;
+  @ViewChild("elem", { static: true }) div!: ElementRef<HTMLElement>;
 
   private viewInitialized = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor() {}
 
   ngAfterViewInit(): void {
     this.viewInitialized = true;
     this.updateView();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(_changes: SimpleChanges): void {
     if (this.viewInitialized) {
       this.updateView();
     }
@@ -206,8 +205,9 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
   }
 
   updateView() {
-    this.div.nativeElement.style.width = +this.size;
-    this.div.nativeElement.style.height = +this.size;
+    this.div.nativeElement.style.width = this.size.toString() + "px";
+    this.div.nativeElement.style.height = this.size.toString() + "px";
+
     if (typeof this.image === "string") {
       const img = new Image();
       img.crossOrigin = "anonymous";
