@@ -1,7 +1,7 @@
 {
-  "name": "ngx-kjua",
+  "name": "@megaphone/ngx-kjua",
   "description": "Angular QR-Code generator component.",
-  "version": "16.0.0",
+  "version": "16.1.0",
   "license": "MIT",
   "private": false,
   "repository": {
@@ -14,6 +14,10 @@
       "email": "werth.david@gmail.com"
     }
   ],
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "http://172.16.70.42:4873"
+  },
   "keywords": [
     "angular",
     "kjua",
@@ -30,6 +34,6 @@
     "kjua-svg": "^1.13.1"
   },
   "dependencies": {
-    "tslib": "^2.4.0"
+    "tslib": "^2.6.1"
   }
 }
