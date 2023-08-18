@@ -1,8 +1,6 @@
 [![NPM version](https://img.shields.io/npm/v/ngx-kjua.svg?&label=npm)](https://www.npmjs.com/package/ngx-kjua) 
-[![Dependency Status](https://david-dm.org/werthdavid/ngx-kjua.svg)](https://david-dm.org/werthdavid/ngx-kjua)
 [![Downloads](https://img.shields.io/npm/dm/ngx-kjua.svg)](https://npmjs.org/package/ngx-kjua)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2ef6c180329a44cc9fd95abc77fc8c1d)](https://www.codacy.com/app/werthdavid/ngx-kjua?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=werthdavid/ngx-kjua&amp;utm_campaign=Badge_Grade)
 <img align="right" src="https://raw.githubusercontent.com/werthdavid/ngx-kjua/master/docs/readme-logo.png"/>
 
 If you find my work useful you can buy me a coffee, I am very thankful for your support. 
