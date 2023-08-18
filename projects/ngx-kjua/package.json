@@ -1,5 +1,5 @@
 {
-  "name": "@megaphone/ngx-kjua",
+  "name": "ngx-kjua",
   "description": "Angular QR-Code generator component.",
   "version": "16.1.0",
   "license": "MIT",
@@ -14,10 +14,6 @@
       "email": "werth.david@gmail.com"
     }
   ],
-  "publishConfig": {
-    "access": "restricted",
-    "registry": "http://172.16.70.42:4873"
-  },
   "keywords": [
     "angular",
     "kjua",
