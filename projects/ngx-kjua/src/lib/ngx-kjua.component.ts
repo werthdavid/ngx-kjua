@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   EventEmitter,
   Input,
   OnChanges,
@@ -53,8 +54,8 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
   /**
    * size in pixel
    */
-  @Input()
-  size = 200;
+
+  @Input() size = 200;
 
   /**
    * pixel-ratio; undefined for devicePixelRatio
@@ -151,8 +152,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
   @Output()
   codeFinished = new EventEmitter<any>();
 
-  @ViewChild("elem")
-  div: any;
+  @ViewChild("elem", { static: true }) div!: ElementRef<HTMLElement>;
 
   private viewInitialized = false;
 
@@ -205,8 +205,9 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
   }
 
   updateView() {
-    this.div.nativeElement.style.width = +this.size;
-    this.div.nativeElement.style.height = +this.size;
+    this.div.nativeElement.style.width = this.size.toString() + "px";
+    this.div.nativeElement.style.height = this.size.toString() + "px";
+
     if (typeof this.image === "string") {
       const img = new Image();
       img.crossOrigin = "anonymous";
