@@ -24,7 +24,7 @@ jobs:
         with:
           name: ngx-kjua
           path: artifact/ngx-kjua/
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ inputs.node-version }}
           registry-url: ${{ inputs.registry-url }}
