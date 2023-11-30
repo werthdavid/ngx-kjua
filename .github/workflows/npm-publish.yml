@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: ${{ inputs.node-version }}
           registry-url: ${{ inputs.registry-url }}
-      - run: npm ci --no-optional
+      - run: npm ci --no-optional --force
       - run: npm publish --access public ${{ inputs.release-tag }}
         working-directory: artifact/ngx-kjua
         env:
