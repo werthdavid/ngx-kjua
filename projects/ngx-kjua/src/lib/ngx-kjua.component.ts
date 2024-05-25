@@ -55,7 +55,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
    * size in pixel
    */
 
-  @Input() size = 200;
+  @Input() size: string | number = 200;
 
   /**
    * pixel-ratio; undefined for devicePixelRatio
@@ -175,7 +175,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
       crisp: this.crisp,
       minVersion: this.minVersion,
       ecLevel: this.ecLevel,
-      size: this.size,
+      size: +this.size,
       ratio: this.ratio,
       fill: this.fill,
       back: this.back,
