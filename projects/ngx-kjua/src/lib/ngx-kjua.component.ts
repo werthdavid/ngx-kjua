@@ -10,13 +10,14 @@ import {
   SimpleChanges,
   ViewChild,
 } from "@angular/core";
-import kjua, { KjuaOptions } from "kjua-svg";
+import { kjua } from "./kjua/index";
+import { KjuaOptions } from "./kjua/index.d";
 import { KjuaEcLevel, KjuaMode, KjuaRender } from "./ngx-kjua.interface";
 
 @Component({
   standalone: true,
   selector: "ngx-kjua",
-  template: ` <div [class]="cssClass" #elem></div>`,
+  template: `<div [class]="cssClass" #elem></div>`,
   styles: [
     `
       :host {
