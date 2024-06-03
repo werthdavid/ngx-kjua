@@ -24,10 +24,10 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2020",
-    "module": "es2020",
+    "target": "es6",
+    "module": "es6",
     "lib": [
-      "es2020",
+      "es6",
       "dom"
     ]
   },
