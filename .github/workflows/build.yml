@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build on Node.js ${{ inputs.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ inputs.node-version }}
       - run: npm i --force
@@ -23,7 +23,7 @@ jobs:
       - run: cp LICENSE dist/ngx-kjua/
       - name: Test on ${{ inputs.node-version }}
         run: npm run test
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ngx-kjua
           path: dist/ngx-kjua/
