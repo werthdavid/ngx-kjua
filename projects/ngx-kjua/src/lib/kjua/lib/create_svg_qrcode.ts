@@ -330,6 +330,19 @@ export const create_svg_qrcode = (qr: any, settings: any) => {
         image: get_attr(settings.image, "src"),
       });
     }
+
+    if (settings.mode === "clearimage") {
+      const ratio = settings.ratio || dpr;
+      const canvas = create_canvas(settings.size, ratio);
+      const ctx2 = canvas.getContext("2d");
+      const imagePos = calc_image_pos(settings);
+      ctx2.globalCompositeOperation = "destination-in";
+      ctx2.fillStyle = "deeppink";
+      ctx2.fillRect(imagePos.x,
+        imagePos.y,
+        imagePos.iw,
+        imagePos.ih)
+    }
   }
   if (mode === "label") {
     add_label(svg_el, settings);
@@ -341,6 +354,13 @@ export const create_svg_qrcode = (qr: any, settings: any) => {
   } else if (mode === "imagelabel") {
     add_image(svg_el, settings);
     add_label(svg_el, settings);
+  } else if (mode === "clearimage") {
+    // We set the mode to "labelimage" here. this will change to behavior of calc_image_pos() to use
+    // the arrayposition 1 (that means, the second position in the pos-array is used for drawing the image.
+    // the first position in the pos-array is used for clearing the background via "destination-out").
+    // We can't just change the calc_image_pos() to use arrayposition 1 in the case of clearimage as we
+    // call this function as well to calculate the area to be cleared
+    add_image(svg_el, {...settings, mode: "labelimage"});
   }
 
   return svg_el;

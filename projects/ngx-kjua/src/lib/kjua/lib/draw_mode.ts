@@ -65,5 +65,12 @@ export const draw_mode = (ctx: any, settings: any) => {
   } else if (mode === "imagelabel") {
     draw_image(ctx, settings);
     draw_label(ctx, settings);
+  } else if (mode === "clearimage") {
+    // We set the mode to "labelimage" here. this will change to behavior of calc_image_pos() to use
+    // the arrayposition 1 (that means, the second position in the pos-array is used for drawing the image.
+    // the first position in the pos-array is used for clearing the background via "destination-out").
+    // We can't just change the calc_image_pos() to use arrayposition 1 in the case of clearimage as we
+    // call this function as well to calculate the area to be cleared
+    draw_image(ctx, {...settings, mode: "labelimage"});
   }
 };

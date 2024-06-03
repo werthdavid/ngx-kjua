@@ -1,8 +1,6 @@
 [![NPM version](https://img.shields.io/npm/v/ngx-kjua.svg?&label=npm)](https://www.npmjs.com/package/ngx-kjua) 
-[![Dependency Status](https://david-dm.org/werthdavid/ngx-kjua.svg)](https://david-dm.org/werthdavid/ngx-kjua)
 [![Downloads](https://img.shields.io/npm/dm/ngx-kjua.svg)](https://npmjs.org/package/ngx-kjua)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2ef6c180329a44cc9fd95abc77fc8c1d)](https://www.codacy.com/app/werthdavid/ngx-kjua?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=werthdavid/ngx-kjua&amp;utm_campaign=Badge_Grade)
 <img align="right" src="https://raw.githubusercontent.com/werthdavid/ngx-kjua/master/docs/readme-logo.png"/>
 
 If you find my work useful you can buy me a coffee, I am very thankful for your support. 
@@ -110,6 +108,8 @@ Once the package is imported, you can use it in your Angular application:
 
 ## Options
 
+:exclamation: *Caution*: When adding images, label or similar, this will reduce the readability of the QR-code. Consider using a higher error correction level (e.g. L) in those cases.
+
 ### Crisp
 
 As you can set the size of the image, the amount of 'modules' (black/white boxes that make up the QR-code) is calculated based on the size and the amount of `quiet` modules. The calculation can result in an odd number so that a module is e.g. 4.5 pixels big. The resulting image will be drawn fuzzy if `crisp` is set to false. Setting it to `true` will result in 'sharp' lines.
@@ -131,7 +131,13 @@ This can reduce the readability of the code!
 ### Image as Code
 <img src="https://raw.githubusercontent.com/werthdavid/kjua/master/docs/image-as-code.png"/>
 
-### Labelimage and Imagelabel
+### Clear + Image
+<img src="https://raw.githubusercontent.com/werthdavid/ngx-kjua/master/docs/clearimage.png"/>
+
+This mode let's you "cut out" parts of the QR-code and at the same time add an image.
+
+
+### labelimage, imagelabel and clearimage
 Use this, if you want a label AND an image. In these modes `mSize`, `mPosX` and `mPosY` can be provided as an array.
 In mode `labelimage`, the first value (index 0) of the `mSize`, `mPosX` and `mPosY` arrays is used for the label,
 the second value (index 1) is used for image and vice versa. Also in `labelimage` mode, the label is drawn before the 
@@ -149,7 +155,7 @@ image is drawn and therefore kinda "in the background" if the two overlap.
 * `back` background color (defaults to `#fff`, for transparent use `''` or `null`)
 * `rounded` roundend corners in pc: 0..100 (defaults to `0`, not working if `render`is set to `svg`)
 * `quiet` quiet zone in modules (defaults to `0`)
-* `mode` modes: 'plain', 'label' or 'image' (defaults to `plain`, set `label` or `image` property if you change this)
+* `mode` modes: 'plain', 'label', 'image' or 'clear' (defaults to `plain`, set `label` or `image` property if you change this)
 * `mSize` label/image size in pc: 0..100 (defaults to `30`)
 * `mPosX` label/image pos x in pc: 0..100 (defaults to `50`)
 * `mPosY` label/image pos y in pc: 0..100 (defaults to `50`)

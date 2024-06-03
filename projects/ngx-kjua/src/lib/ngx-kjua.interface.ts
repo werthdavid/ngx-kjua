@@ -5,4 +5,5 @@ export type KjuaMode =
   | "label"
   | "image"
   | "imagelabel"
+  | "clearimage"
   | "labelimage";

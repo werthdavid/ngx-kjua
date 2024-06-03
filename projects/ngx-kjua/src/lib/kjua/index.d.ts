@@ -57,7 +57,7 @@ export interface KjuaOptions {
   /**
    * modes: 'plain', 'label', 'image', 'imagelabel' or 'labelimage'
    */
-  mode?: "plain" | "label" | "image" | "imagelabel" | "labelimage";
+  mode?: "plain" | "label" | "image" | "imagelabel" | "labelimage" | "clearimage";
 
   /**
    * label/image size and pos in pc: 0..100

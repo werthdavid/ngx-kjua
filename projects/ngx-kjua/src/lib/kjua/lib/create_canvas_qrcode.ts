@@ -55,7 +55,10 @@ export const draw_modules = (qr: any, ctx: any, settings: any) => {
 const draw = (qr: any, ctx: any, settings: any) => {
   draw_background(ctx, settings);
   draw_modules(qr, ctx, settings);
-  draw_mode(ctx, settings);
+  if (settings.mode !== "clearimage") {
+    // we do this later manually
+    draw_mode(ctx, settings);
+  }
 };
 
 export const create_canvas_qrcode = (qr: any, settings: any, as_image: any) => {
@@ -81,5 +84,17 @@ export const create_canvas_qrcode = (qr: any, settings: any, as_image: any) => {
 
   context.scale(ratio, ratio);
   draw(qr, context, settings);
+  if (settings.mode === "clearimage") {
+    // draw_modules(qr, ctx2, settings);
+    const imagePos = dom.calc_image_pos(settings);
+    context.globalCompositeOperation = "destination-out";
+    context.fillStyle = "deeppink"; // any color works
+    context.fillRect(imagePos.x,
+      imagePos.y,
+      imagePos.iw,
+      imagePos.ih);
+    context.globalCompositeOperation = "source-over";
+    draw_mode(context, settings);
+  }
   return as_image ? dom.canvas_to_img(canvas, settings.elementId) : canvas;
 };

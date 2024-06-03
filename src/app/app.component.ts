@@ -19,7 +19,7 @@ export class AppComponent implements AfterViewInit {
   size = 400;
   ratio = undefined;
   fill = "#333333";
-  back = "#ffffff";
+  back = "transparent";
   rounded = 0;
   quiet = 1;
   mode: KjuaMode = "label";
