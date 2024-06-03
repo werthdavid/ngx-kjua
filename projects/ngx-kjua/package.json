@@ -27,7 +27,7 @@
   "peerDependencies": {
     "@angular/common": ">=14.0.0",
     "@angular/core": ">=14.0.0",
-    "qrcode-generator": "^1.4.4",
+    "qrcode-generator": "^1.4.4"
   },
   "dependencies": {
     "tslib": "^2.6.2"
