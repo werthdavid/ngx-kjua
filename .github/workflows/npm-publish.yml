@@ -20,16 +20,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: ngx-kjua
-          path: artifact/ngx-kjua/
+          path: dist/ngx-kjua/
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ inputs.node-version }}
           registry-url: ${{ inputs.registry-url }}
       - run: npm ci --no-optional --force
       - run: npm publish --access public ${{ inputs.release-tag }}
-        working-directory: artifact/ngx-kjua
+        working-directory: dist/ngx-kjua/
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm-token }}
