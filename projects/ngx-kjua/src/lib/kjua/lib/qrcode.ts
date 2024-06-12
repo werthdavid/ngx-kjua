@@ -1,14 +1,18 @@
 const RE_CODE_LENGTH_OVERFLOW = /code length overflow/i;
 
-import * as qr_gen from "qrcode-generator";
-(qr_gen as any).stringToBytes = qr_gen.stringToBytesFuncs["UTF-8"];
+import qrcode from "qrcode-generator";
+qrcode.stringToBytes = qrcode.stringToBytesFuncs["UTF-8"];
 
-const min_qrcode = (text: any, level: any, min_ver: number = 1) => {
-  min_ver = Math.max(1, min_ver);
+const min_qrcode = (
+  text: string,
+  level: ErrorCorrectionLevel,
+  min_ver: TypeNumber = 1
+) => {
+  min_ver = Math.max(1, min_ver) as TypeNumber;
 
   for (let version = min_ver; version <= 40; version += 1) {
     try {
-      const qr = (qr_gen as any)(version, level);
+      const qr = qrcode(version, level);
       qr.addData(text);
       qr.make();
       const module_count = qr.getModuleCount();
@@ -33,8 +37,8 @@ const min_qrcode = (text: any, level: any, min_ver: number = 1) => {
 
 export const quiet_qrcode = (
   text = "",
-  level = "L",
-  min_ver = 1,
+  level: ErrorCorrectionLevel = "L",
+  min_ver: TypeNumber = 1,
   quiet = 0
 ) => {
   const qr = min_qrcode(text, level, min_ver);
