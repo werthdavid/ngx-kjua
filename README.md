@@ -38,7 +38,7 @@ Fromm the `v16.1.0` this library use the standalone component, and not the modul
 To install this package, run:
 
 ```bash
-npm i ngx-kjua kjua-svg --save
+npm i ngx-kjua --save
 ```
 
 Then import it into your Angular `AppModule`:
