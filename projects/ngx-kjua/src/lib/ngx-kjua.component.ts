@@ -10,9 +10,9 @@ import {
   SimpleChanges,
   ViewChild,
 } from "@angular/core";
-import { kjua } from "./kjua/index";
-import { KjuaOptions } from "./kjua/index.d";
-import { KjuaEcLevel, KjuaMode, KjuaRender } from "./ngx-kjua.interface";
+import {kjua} from "./kjua/index";
+import {KjuaEcLevel, KjuaMode, KjuaRender} from "./ngx-kjua.interface";
+import {KjuaOptions} from "./kjua/lib/kjua-options";
 
 @Component({
   standalone: true,
