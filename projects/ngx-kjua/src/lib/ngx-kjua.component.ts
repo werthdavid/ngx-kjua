@@ -9,6 +9,7 @@ import {
   Output,
   SimpleChanges,
   ViewChild,
+  booleanAttribute,
 } from "@angular/core";
 import {kjua} from "./kjua/index";
 import {KjuaEcLevel, KjuaMode, KjuaRender} from "./ngx-kjua.interface";
@@ -87,7 +88,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
   }
 
   /**
-   * roundend corners in pc= 0..100
+   * rounded corners in pc= 0..100
    */
   @Input()
   rounded = 0;
@@ -115,7 +116,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
   mPosY: number | number[] = 50;
   @Input()
   image: null | undefined | HTMLImageElement | string = undefined;
-  @Input()
+  @Input({ transform: booleanAttribute })
   imageAsCode = false;
 
   /**
@@ -134,7 +135,7 @@ export class NgxKjuaComponent implements AfterViewInit, OnChanges {
    * If true, rendering is done inside "requestAnimationFrame"-call.
    * Use this if you want to generate more than one code (e.g. batch)
    */
-  @Input()
+  @Input({ transform: booleanAttribute })
   renderAsync = false;
 
   /**
