@@ -22,12 +22,9 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es6",
-    "module": "es6",
-    "lib": [
-      "es6",
-      "dom"
-    ]
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": ["ES2022", "dom"],
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
