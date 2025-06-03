@@ -6,9 +6,10 @@ import {
 } from "../../projects/ngx-kjua/src/lib/ngx-kjua.interface";
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"],
+    selector: "app-root",
+    templateUrl: "./app.component.html",
+    styleUrls: ["./app.component.css"],
+    standalone: false
 })
 export class AppComponent implements AfterViewInit {
   text: string | any = "https://github.com/werthdavid/ngx-kjua";
