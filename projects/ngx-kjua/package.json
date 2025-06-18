@@ -1,7 +1,7 @@
 {
   "name": "ngx-kjua",
   "description": "Angular QR-Code generator component.",
-  "version": "19.0.0",
+  "version": "20.0.0",
   "license": "MIT",
   "private": false,
   "repository": {
@@ -25,8 +25,8 @@
     "url": "https://github.com/werthdavid/ngx-kjua/issues"
   },
   "peerDependencies": {
-    "@angular/common": ">=19.0.0",
-    "@angular/core": ">=19.0.0",
+    "@angular/common": ">=20.0.0",
+    "@angular/core": ">=20.0.0",
     "qrcode-generator": "^1.4.4"
   },
   "dependencies": {
