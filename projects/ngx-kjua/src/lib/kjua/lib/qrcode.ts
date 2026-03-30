@@ -1,7 +1,6 @@
 const RE_CODE_LENGTH_OVERFLOW = /code length overflow/i;
 
 import qrcode from "qrcode-generator";
-qrcode.stringToBytes = qrcode.stringToBytesFuncs["UTF-8"];
 
 const min_qrcode = (
   text: string,

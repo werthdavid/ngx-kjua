@@ -1,4 +1,6 @@
-import "jest-preset-angular/setup-jest";
+import { setupZoneTestEnv } from 'jest-preset-angular/setup-env/zone';
+setupZoneTestEnv();
+
 import "./projects/ngx-kjua/src/lib/kjua/lib/qrcode"
 
 // We have to mock the whole thing as "qrcode-generator" needs to override the stringToBytes method

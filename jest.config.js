@@ -1,12 +1,7 @@
-
-// eslint-disable-next-line no-undef
-globalThis.ngJest = {
-  skipNgcc: false,
-  tsconfig: 'tsconfig.spec.json',
-};
+const { createCjsPreset } = require('jest-preset-angular/presets');
 
 module.exports = {
-  preset: "jest-preset-angular",
+  ...createCjsPreset(),
   setupFilesAfterEnv: [
     "./setup-jest.ts"
   ],
@@ -15,7 +10,4 @@ module.exports = {
     "html"
   ],
   testEnvironment: "jsdom",
-  transform: {
-    "^.+\\.(ts|js|html)$": 'jest-preset-angular',
-  }
 };

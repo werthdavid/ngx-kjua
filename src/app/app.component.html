@@ -1,98 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>ngx-kjua</title>
-  <meta name="description" content="demo for kjua (https://larsjung.de/kjua/)">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="//fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-</head>
-<body>
-<div id="container">
-  <ngx-kjua
-    [text]="text"
-    [render]="render"
-    [crisp]="crisp"
-    [minVersion]="minVersion"
-    [ecLevel]="ecLevel"
-    [size]="size"
-    [ratio]="ratio"
-    [fill]="fill"
-    [back]="back"
-    [rounded]="rounded"
-    [quiet]="quiet"
-    [mode]="mode"
-    [mSize]="[mSize, mSize2]"
-    [mPosX]="[mPosX,mPosX2]"
-    [mPosY]="[mPosY,mPosY2]"
-    [label]="label"
-    [fontname]="fontname"
-    [fontcolor]="fontcolor"
-    [fontoutline]="fontoutline"
-    [image]="image"
-    [imageAsCode]="imageAsCode"
-    [elementId]="elementId"
-  ></ngx-kjua>
-</div>
-<div class="control left"><a id="banner" href="https://github.com/werthdavid/ngx-kjua">ngx-kjua</a>
-  <hr>
-  <label for="render">RENDER MODE</label><select id="render" [(ngModel)]="render">
-    <option value="image" selected="selected">image</option>
-    <option value="canvas">canvas</option>
-    <option value="svg">svg</option>
-  </select><label for="crisp">CRISP</label><select id="crisp" [(ngModel)]="crisp">
-    <option value="true" selected="selected">true</option>
-    <option value="false">false</option>
-  </select>
-  <hr>
-  <label for="size">SIZE: {{size}}px</label><input id="size" type="range" value="400" min="100" max="1000" step="50" [(ngModel)]="size">
-  <label for="fill">FILL</label><input id="fill" type="color" value="#333333" [(ngModel)]="fill">
-  <label for="back">BACK</label><input id="back" type="color" value="#ffffff" [(ngModel)]="back">
-  <label for="text">CONTENT</label><textarea id="text" [(ngModel)]="text"></textarea>
-  <hr>
-  <label for="minversion">MIN VERSION: {{minVersion}}</label><input id="minversion" type="range" value="1" min="1" max="40" step="1" [(ngModel)]="minVersion">
-  <label for="eclevel">ERROR CORRECTION LEVEL</label>
-  <select id="eclevel" [(ngModel)]="ecLevel">
-    <option value="L">L - low (7%)</option>
-    <option value="M">M - medium (15%)</option>
-    <option value="Q">Q - quartile (25%)</option>
-    <option value="H" selected="selected">H - high (30%)</option>
-  </select>
-  <label for="quiet">QUIET ZONE: {{quiet}} modules</label>
-  <input id="quiet" type="range" value="1" min="0" max="40" step="1" [(ngModel)]="quiet">
-  <label for="rounded">ROUNDED CORNERS: {{rounded}}%</label>
-  <input id="rounded" type="range" value="100" min="0" max="100" step="10" [(ngModel)]="rounded">
-  <label for="elementId">ELEMENT-ID</label><textarea id="elementId" [(ngModel)]="elementId"></textarea>
-</div>
-<div class="control right"><label for="mode">MODE</label><select id="mode" [(ngModel)]="mode">
-  <option value="plain">plain</option>
-  <option value="label" selected="selected">label</option>
-  <option value="image">image</option>
-  <option value="imagelabel">imagelabel</option>
-  <option value="labelimage">labelimage</option>
-  <option value="clearimage">clearimage</option>
-</select>
-  <hr>
-  <label for="msize">SIZE: {{mSize}}%</label><input id="msize" type="range" value="30" min="0" max="100" step="1" [(ngModel)]="mSize">
-  <label for="mposx">POS X: {{mPosX}}%</label><input id="mposx" type="range" value="50" min="0" max="100" step="1" [(ngModel)]="mPosX">
-  <label for="mposy">POS Y: {{mPosY}}%</label><input id="mposy" type="range" value="50" min="0" max="100" step="1" [(ngModel)]="mPosY">
-  <hr>
-  <div *ngIf="mode === 'labelimage' || mode === 'imagelabel' || mode === 'clearimage'">
-    <label for="msize2">SIZE2: {{mSize2}}%</label><input id="msize2" type="range" value="30" min="0" max="100" step="1" [(ngModel)]="mSize2">
-    <label for="mposx2">POS X2: {{mPosX2}}%</label><input id="mposx2" type="range" value="50" min="0" max="100" step="1" [(ngModel)]="mPosX2">
-    <label for="mposy2">POS Y2: {{mPosY2}}%</label><input id="mposy2" type="range" value="50" min="0" max="100" step="1" [(ngModel)]="mPosY2">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ngx-kjua</title>
+    <meta name="description" content="demo for kjua (https://larsjung.de/kjua/)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  </head>
+  <body>
+    <div id="container">
+      <ngx-kjua
+        [text]="text"
+        [render]="render"
+        [crisp]="crisp"
+        [minVersion]="minVersion"
+        [ecLevel]="ecLevel"
+        [size]="size"
+        [ratio]="ratio"
+        [fill]="fill"
+        [back]="back"
+        [rounded]="rounded"
+        [quiet]="quiet"
+        [mode]="mode"
+        [mSize]="[mSize, mSize2]"
+        [mPosX]="[mPosX,mPosX2]"
+        [mPosY]="[mPosY,mPosY2]"
+        [label]="label"
+        [fontname]="fontname"
+        [fontcolor]="fontcolor"
+        [fontoutline]="fontoutline"
+        [image]="image"
+        [imageAsCode]="imageAsCode"
+        [elementId]="elementId"
+      ></ngx-kjua>
+    </div>
+    <div class="control left"><a id="banner" href="https://github.com/werthdavid/ngx-kjua">ngx-kjua</a>
     <hr>
-  </div>
-  <label for="label">LABEL</label><input id="label" type="text" [(ngModel)]="label">
-  <label for="font">FONT NAME</label><input id="font" type="text" [(ngModel)]="fontname">
-  <label for="fontcolor">FONT COLOR</label><input id="fontcolor" type="color" value="#ff9818" [(ngModel)]="fontcolor">
-  <label for="fontoutline">FONT OUTLINE</label><input id="fontoutline" [(ngModel)]="fontoutline" type="checkbox">
-  <hr>
-  <label for="image">IMAGE</label><input id="image" type="file" (change)="getFiles($event)">
-  <label for="image-text">IMAGE-TEXT (base64)</label><input id="image-text" [(ngModel)]="imageText" type="text">
-  <label for="image-as-code">IMAGE-AS-CODE</label><input id="image-as-code" [(ngModel)]="imageAsCode" type="checkbox">
-</div>
-<img id="img-buffer" src="assets/dummy.png" #imgBuffer>
-</body>
-</html>
+      <label for="render">RENDER MODE</label><select id="render" [(ngModel)]="render">
+      <option value="image" selected="selected">image</option>
+      <option value="canvas">canvas</option>
+      <option value="svg">svg</option>
+      </select><label for="crisp">CRISP</label><select id="crisp" [(ngModel)]="crisp">
+      <option value="true" selected="selected">true</option>
+      <option value="false">false</option>
+    </select>
+    <hr>
+      <label for="size">SIZE: {{size}}px</label><input id="size" type="range" value="400" min="100" max="1000" step="50" [(ngModel)]="size">
+      <label for="fill">FILL</label><input id="fill" type="color" value="#333333" [(ngModel)]="fill">
+      <label for="back">BACK</label><input id="back" type="color" value="#ffffff" [(ngModel)]="back">
+      <label for="text">CONTENT</label><textarea id="text" [(ngModel)]="text"></textarea>
+      <hr>
+        <label for="minversion">MIN VERSION: {{minVersion}}</label><input id="minversion" type="range" value="1" min="1" max="40" step="1" [(ngModel)]="minVersion">
+        <label for="eclevel">ERROR CORRECTION LEVEL</label>
+        <select id="eclevel" [(ngModel)]="ecLevel">
+          <option value="L">L - low (7%)</option>
+          <option value="M">M - medium (15%)</option>
+          <option value="Q">Q - quartile (25%)</option>
+          <option value="H" selected="selected">H - high (30%)</option>
+        </select>
+        <label for="quiet">QUIET ZONE: {{quiet}} modules</label>
+        <input id="quiet" type="range" value="1" min="0" max="40" step="1" [(ngModel)]="quiet">
+        <label for="rounded">ROUNDED CORNERS: {{rounded}}%</label>
+        <input id="rounded" type="range" value="100" min="0" max="100" step="10" [(ngModel)]="rounded">
+        <label for="elementId">ELEMENT-ID</label><textarea id="elementId" [(ngModel)]="elementId"></textarea>
+      </div>
+      <div class="control right"><label for="mode">MODE</label><select id="mode" [(ngModel)]="mode">
+      <option value="plain">plain</option>
+      <option value="label" selected="selected">label</option>
+      <option value="image">image</option>
+      <option value="imagelabel">imagelabel</option>
+      <option value="labelimage">labelimage</option>
+      <option value="clearimage">clearimage</option>
+    </select>
+    <hr>
+      <label for="msize">SIZE: {{mSize}}%</label><input id="msize" type="range" value="30" min="0" max="100" step="1" [(ngModel)]="mSize">
+      <label for="mposx">POS X: {{mPosX}}%</label><input id="mposx" type="range" value="50" min="0" max="100" step="1" [(ngModel)]="mPosX">
+      <label for="mposy">POS Y: {{mPosY}}%</label><input id="mposy" type="range" value="50" min="0" max="100" step="1" [(ngModel)]="mPosY">
+      <hr>
+        @if (mode === 'labelimage' || mode === 'imagelabel' || mode === 'clearimage') {
+          <div>
+            <label for="msize2">SIZE2: {{mSize2}}%</label><input id="msize2" type="range" value="30" min="0" max="100" step="1" [(ngModel)]="mSize2">
+            <label for="mposx2">POS X2: {{mPosX2}}%</label><input id="mposx2" type="range" value="50" min="0" max="100" step="1" [(ngModel)]="mPosX2">
+            <label for="mposy2">POS Y2: {{mPosY2}}%</label><input id="mposy2" type="range" value="50" min="0" max="100" step="1" [(ngModel)]="mPosY2">
+            <hr>
+            </div>
+          }
+          <label for="label">LABEL</label><input id="label" type="text" [(ngModel)]="label">
+          <label for="font">FONT NAME</label><input id="font" type="text" [(ngModel)]="fontname">
+          <label for="fontcolor">FONT COLOR</label><input id="fontcolor" type="color" value="#ff9818" [(ngModel)]="fontcolor">
+          <label for="fontoutline">FONT OUTLINE</label><input id="fontoutline" [(ngModel)]="fontoutline" type="checkbox">
+          <hr>
+            <label for="image">IMAGE</label><input id="image" type="file" (change)="getFiles($event)">
+            <label for="image-text">IMAGE-TEXT (base64)</label><input id="image-text" [(ngModel)]="imageText" type="text">
+            <label for="image-as-code">IMAGE-AS-CODE</label><input id="image-as-code" [(ngModel)]="imageAsCode" type="checkbox">
+          </div>
+          <img id="img-buffer" src="assets/dummy.png" #imgBuffer>
+        </body>
+      </html>
